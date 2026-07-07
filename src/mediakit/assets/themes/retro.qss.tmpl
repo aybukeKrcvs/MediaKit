@@ -1,0 +1,68 @@
+QWidget {
+    background-color: $bg;
+    color: $ink;
+    font-family: "Consolas", "Courier New";
+    font-size: 13px;
+}
+
+#Sidebar {
+    background-color: $panel;
+    border-right: 1px solid $line;
+}
+
+#NavButton {
+    background-color: transparent;
+    color: $muted;
+    border: none;
+    border-left: 3px solid transparent;
+    border-radius: 0px;
+    padding: 13px 18px;
+    text-align: left;
+    font-weight: bold;
+}
+#NavButton:hover   { background-color: $hover; color: $ink; }
+#NavButton:pressed { background-color: $panel; }
+#NavButton:checked {
+    background-color: $panel2;
+    color: $amber;
+    border-left: 3px solid $amber;
+}
+
+#ScreenTitle    { color: $amber; font-size: 27px; font-weight: bold; }
+#ScreenSubtitle { color: $muted; font-size: 12px; }
+
+#FooterLabel {
+    color: $faint;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 12px 18px 6px 18px;
+    border-top: 1px solid $line;
+}
+#LangButton {
+    background-color: transparent;
+    color: $muted;
+    border: none;
+    border-left: 3px solid transparent;
+    border-radius: 0px;
+    padding: 9px 18px;
+    text-align: left;
+    font-weight: bold;
+}
+#LangButton:hover   { background-color: $hover; color: $ink; }
+#LangButton:checked {
+    background-color: $panel2;
+    color: $amber;
+    border-left: 3px solid $amber;
+}
+#ThemeButton {
+    background-color: transparent;
+    color: $amber;
+    border: none;
+    border-left: 3px solid $amber;
+    border-radius: 0px;
+    padding: 9px 18px;
+    margin-top: 4px;
+    text-align: left;
+    font-weight: bold;
+}
+#ThemeButton:hover { background-color: $hover; }

@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+
+# uv / venv
+.venv/
+
+# PyInstaller
+build/
+dist/
+
+# Inno Setup
+Output/
