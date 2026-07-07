@@ -1,5 +1,5 @@
 def test_package_imports():
-    """Paket kurulu ve import edilebilir — walking skeleton'ın en küçük kanıtı."""
+    """Package is installed and importable — the smallest proof of the walking skeleton."""
     import mediakit
 
     assert mediakit is not None

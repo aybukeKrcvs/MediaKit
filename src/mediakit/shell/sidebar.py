@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QButtonGroup, QLabel, QPushButton, QVBoxLayout, QW
 
 
 class Sidebar(QWidget):
-    selection_changed = Signal(int)  # modül navigasyonu
+    selection_changed = Signal(int)
     language_selected = Signal(str)  # "tr" / "en"
     theme_toggled = Signal()
 
@@ -16,25 +16,25 @@ class Sidebar(QWidget):
         layout.setContentsMargins(0, 14, 0, 10)
         layout.setSpacing(0)
 
-        # --- modül nav ---
+        # --- module nav ---
         self._nav = QButtonGroup(self)
         self._nav.setExclusive(True)
         for index in range(3):  # IMAGE, AUDIO, PDF
             layout.addWidget(self._make_nav_button(index))
         self._nav.idClicked.connect(self.selection_changed)
 
-        layout.addStretch()  # footer'ı en alta iter
+        layout.addStretch()  # pushes the footer to the bottom
 
-        # --- footer: ayarlar başlığı + dil listesi ---
+        # --- footer: settings label + language list ---
         self._footer_label = QLabel()
         self._footer_label.setObjectName("FooterLabel")
         layout.addWidget(self._footer_label)
 
-        self._lang = QButtonGroup(self)  # nav'dan AYRI grup
+        self._lang = QButtonGroup(self)  # separate group from nav
         self._lang.setExclusive(True)
         self._lang_codes: dict[int, str] = {}
         for name, code in (("Türkçe", "tr"), ("English", "en")):
-            button = QPushButton(name)  # endonym → asla çevrilmez
+            button = QPushButton(name)  # endonym -> never translated
             button.setObjectName("LangButton")
             button.setCheckable(True)
             btn_id = len(self._lang_codes)
@@ -67,7 +67,7 @@ class Sidebar(QWidget):
         self.theme_toggled.emit()
 
     def set_theme_label(self, theme: str) -> None:
-        # butonun üstünde GİDİLECEK tema yazar (bir switch mantığı)
+        # the button shows the theme it will SWITCH TO, not the current one
         if theme == "dark":
             self.theme_button.setText(self.tr("☾  DARK"))
         else:

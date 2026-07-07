@@ -20,7 +20,7 @@ class MainWindow(QMainWindow):
         self.audio_screen = PlaceholderScreen()
         self.pdf_screen = PlaceholderScreen()
 
-        self.stack = QStackedWidget()  # artık 3 sayfa (settings yok)
+        self.stack = QStackedWidget()
         for screen in (self.image_screen, self.audio_screen, self.pdf_screen):
             self.stack.addWidget(screen)
 
@@ -33,7 +33,7 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(central)
 
         self.sidebar.selection_changed.connect(self.stack.setCurrentIndex)
-        self.sidebar.language_selected.connect(self._languages.set_language)  # signal → slot
+        self.sidebar.language_selected.connect(self._languages.set_language)
         self.sidebar.theme_toggled.connect(self._on_theme_toggled)
         self.sidebar.set_active_language(self._languages.language)
         self.sidebar.set_theme_label(self._themes.theme)
@@ -56,8 +56,8 @@ class MainWindow(QMainWindow):
 
     def _on_theme_toggled(self) -> None:
         new_theme = "light" if self._themes.theme == "dark" else "dark"
-        self._themes.set_theme(new_theme)  # QSS yeniden basılır → anında değişir
-        self.sidebar.set_theme_label(new_theme)  # etiketi güncelle
+        self._themes.set_theme(new_theme)  # stylesheet is reapplied -> change is instant
+        self.sidebar.set_theme_label(new_theme)
 
     def changeEvent(self, event: QEvent) -> None:
         if event.type() == QEvent.Type.LanguageChange:

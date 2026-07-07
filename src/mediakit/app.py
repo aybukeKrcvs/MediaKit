@@ -14,7 +14,7 @@ def main() -> int:
     app = QApplication(sys.argv)
 
     themes = ThemeManager(app)
-    themes.set_theme(DEFAULT_THEME)  # QSS'i uygula (setStyleSheet burada)
+    themes.set_theme(DEFAULT_THEME)
 
     languages = LanguageManager(app)
     languages.set_language(DEFAULT_LANGUAGE)
