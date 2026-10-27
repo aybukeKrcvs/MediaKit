@@ -239,3 +239,27 @@ BatchToolScreen QCheckBox::indicator:checked { background: $amber; border-color:
 BatchToolScreen QSlider::groove:horizontal { height: 3px; background: $line; }
 BatchToolScreen QSlider::handle:horizontal { background: $amber; width: 10px; margin: -5px 0; }
 BatchToolScreen QLabel { color: $ink; }
+
+
+/* ================= 1c: metadata + watermark ================= */
+QLabel#InspectorBox {
+    background: $panel;
+    border: 1px solid $line;
+    color: $ink;
+    padding: 10px 12px;
+}
+QLabel#PreviewBox {
+    background: $panel;
+    border: 1px solid $line;
+    color: $muted;
+}
+BatchToolScreen QLineEdit {
+    background: $panel2;
+    color: $ink;
+    border: 1px solid $line;
+    padding: 6px 8px;
+    selection-background-color: $amber;
+    selection-color: $bg;
+}
+BatchToolScreen QLineEdit:focus    { border-color: $amber; }
+BatchToolScreen QLineEdit:disabled { color: $faint; }

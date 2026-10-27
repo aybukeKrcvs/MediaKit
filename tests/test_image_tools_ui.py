@@ -73,7 +73,7 @@ def size_of(path):
 
 
 def test_coming_soon_tool_does_not_open(hub):
-    hub.open_tool("metadata")
+    hub.open_tool("background")
     assert hub.current_tool() is None
 
 
@@ -160,3 +160,66 @@ def test_compress_preset_moves_slider(hub):
     tool = hub.current_tool()
     tool.level_tiles[2].click()
     assert tool.quality_slider.value() == 50
+
+
+# ------------------------------------------------------------------ 1c
+
+
+def _jpeg_with_gps(path):
+    exif = Image.Exif()
+    exif[0x010F] = "Apple"
+    exif[0x0112] = 6
+    exif.get_ifd(0x8825)[2] = (39.0, 55.0, 12.0)
+    Image.new("RGB", (320, 200), (90, 140, 60)).save(path, exif=exif.tobytes())
+    return path
+
+
+def test_metadata_tool_inspects_and_strips(app, hub, tmp_path):
+    src = _jpeg_with_gps(tmp_path / "trip.jpg")
+    hub.open_tool("metadata")
+    tool = hub.current_tool()
+    tool.add_paths([src])
+    tool.file_list.setCurrentRow(0)
+    app.processEvents()
+    assert "GPS" in tool.report.text()
+
+    tool._out_dir = tmp_path / "out"
+    run(app, tool)
+    out = tmp_path / "out" / "trip_clean.jpg"
+    with Image.open(out) as image:
+        exif = image.getexif()
+        assert not exif.get_ifd(0x8825)  # GPS gone
+        assert 0x010F not in exif  # camera gone
+        assert exif.get(0x0112) == 6  # orientation kept
+
+
+def test_watermark_tool_needs_text_then_runs(app, hub, images, tmp_path):
+    hub.open_tool("watermark")
+    tool = hub.current_tool()
+    tool.add_paths([images / "wide.jpg"])
+    app.processEvents()
+    assert not tool.run_btn.isEnabled()  # empty text: nothing to stamp
+
+    tool.text_edit.setText("\u00a9 test")
+    app.processEvents()
+    assert tool.run_btn.isEnabled()
+
+    tool._render_preview()
+    assert not tool.preview.pixmap().isNull()
+
+    tool._out_dir = tmp_path / "out"
+    run(app, tool)
+    out = tmp_path / "out" / "wide_watermarked.jpg"
+    with Image.open(out) as stamped, Image.open(images / "wide.jpg") as original:
+        assert stamped.size == original.size
+        assert stamped.tobytes() != original.tobytes()
+
+
+def test_watermark_logo_mode_requires_logo(app, hub, images):
+    hub.open_tool("watermark")
+    tool = hub.current_tool()
+    tool.add_paths([images])
+    tool.logo_btn.click()
+    app.processEvents()
+    assert tool.logo_row.isVisibleTo(tool) and not tool.text_row.isVisibleTo(tool)
+    assert not tool.run_btn.isEnabled()

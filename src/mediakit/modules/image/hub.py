@@ -36,6 +36,18 @@ def _crop():
     return CropRotateTool()
 
 
+def _metadata():
+    from mediakit.modules.image.metadata_tool import MetadataTool
+
+    return MetadataTool()
+
+
+def _watermark():
+    from mediakit.modules.image.watermark_tool import WatermarkTool
+
+    return WatermarkTool()
+
+
 def image_tool_specs() -> list[ToolSpec]:
     return [
         ToolSpec(
@@ -79,6 +91,7 @@ def image_tool_specs() -> list[ToolSpec]:
             lambda: QCoreApplication.translate(
                 "ImageTools", "Strip location, camera and date info (EXIF)."
             ),
+            _metadata,
         ),
         ToolSpec(
             "watermark",
@@ -87,6 +100,7 @@ def image_tool_specs() -> list[ToolSpec]:
             lambda: QCoreApplication.translate(
                 "ImageTools", "Stamp text or a logo on your images."
             ),
+            _watermark,
         ),
         ToolSpec(
             "background",

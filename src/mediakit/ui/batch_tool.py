@@ -65,8 +65,13 @@ class BatchToolScreen(QWidget):
         self._job: BatchJob | None = None
         self._single = False
         self._icon_provider = QFileIconProvider()
+        # build_options() runs in the middle of _build(), before the run
+        # button exists. Subclasses may call refresh_state() from their
+        # signal handlers during that time; this flag makes it a no-op.
+        self._built = False
 
         self._build()
+        self._built = True
         self.retranslate()
         self._update_enabled()
 
@@ -161,6 +166,8 @@ class BatchToolScreen(QWidget):
 
     def refresh_state(self) -> None:
         """Call after any option change that affects can_run()."""
+        if not self._built:
+            return
         self._update_enabled()
         self._refresh_status_idle()
 

@@ -66,127 +66,127 @@
 <context>
     <name>BatchTool</name>
     <message>
-        <location filename="../../ui/batch_tool.py" line="94" />
+        <location filename="../../ui/batch_tool.py" line="99" />
         <source>Start</source>
         <translation type="unfinished">Başlat</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="261" />
+        <location filename="../../ui/batch_tool.py" line="268" />
         <source>Add files</source>
         <translation type="unfinished">Dosya ekle</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="262" />
+        <location filename="../../ui/batch_tool.py" line="269" />
         <source>Add folder</source>
         <translation type="unfinished">Klasör ekle</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="263" />
+        <location filename="../../ui/batch_tool.py" line="270" />
         <source>Select all</source>
         <translation type="unfinished">Tümünü seç</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="264" />
+        <location filename="../../ui/batch_tool.py" line="271" />
         <source>Select none</source>
         <translation type="unfinished">Hiçbirini seçme</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="265" />
+        <location filename="../../ui/batch_tool.py" line="272" />
         <source>Clear list</source>
         <translation type="unfinished">Listeyi temizle</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="266" />
+        <location filename="../../ui/batch_tool.py" line="273" />
         <source>Output folder...</source>
         <translation type="unfinished">Çıktı formatı</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="267" />
+        <location filename="../../ui/batch_tool.py" line="274" />
         <source>If file exists</source>
         <translation type="unfinished">Dosya varsa</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="268" />
+        <location filename="../../ui/batch_tool.py" line="275" />
         <source>Cancel</source>
         <translation type="unfinished">İptal</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="270" />
+        <location filename="../../ui/batch_tool.py" line="277" />
         <source>Keep both</source>
         <translation type="unfinished">İkisini de tut</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="271" />
+        <location filename="../../ui/batch_tool.py" line="278" />
         <source>Overwrite</source>
         <translation type="unfinished">Üzerine yaz</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="272" />
+        <location filename="../../ui/batch_tool.py" line="279" />
         <source>Skip</source>
         <translation type="unfinished">Atla</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="284" />
+        <location filename="../../ui/batch_tool.py" line="291" />
         <source>Same folder as each source file</source>
         <translation type="unfinished">Her dosyanın kendi klasörü</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="293" />
+        <location filename="../../ui/batch_tool.py" line="300" />
         <source>Add files to begin.</source>
         <translation type="unfinished">Başlamak için dosya ekleyin.</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="299" />
+        <location filename="../../ui/batch_tool.py" line="306" />
         <source>Click an image to edit it.</source>
         <translation type="unfinished">Düzenlemek için bir görsele tıklayın.</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="306" />
+        <location filename="../../ui/batch_tool.py" line="313" />
         <source>All files excluded.</source>
         <translation type="unfinished">Tüm dosyalar hariç tutuldu.</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="309" />
+        <location filename="../../ui/batch_tool.py" line="316" />
         <source>%n file(s) ready.</source>
         <translation type="unfinished">%n dosya hazır.</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="316" />
+        <location filename="../../ui/batch_tool.py" line="323" />
         <source>Supported files</source>
         <translation type="unfinished">Desteklenen dosyalar</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="319" />
+        <location filename="../../ui/batch_tool.py" line="326" />
         <source>Select files</source>
         <translation type="unfinished">Dosya seç</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="327" />
+        <location filename="../../ui/batch_tool.py" line="334" />
         <source>Select folder</source>
         <translation type="unfinished">Klasör seç</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="363" />
+        <location filename="../../ui/batch_tool.py" line="370" />
         <source>Select output folder</source>
         <translation type="unfinished">Çıktı klasörünü seç</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="445" />
+        <location filename="../../ui/batch_tool.py" line="452" />
         <source>Cancelling...</source>
         <translation type="unfinished">İptal ediliyor...</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="450" />
+        <location filename="../../ui/batch_tool.py" line="457" />
         <source>Processing: %1</source>
         <translation type="unfinished">İşleniyor: %1</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="471" />
+        <location filename="../../ui/batch_tool.py" line="478" />
         <source>cancelled</source>
         <translation type="unfinished">iptal edildi</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="481" />
+        <location filename="../../ui/batch_tool.py" line="488" />
         <source>Error: %1</source>
         <translation type="unfinished">Hata: %1</translation>
     </message>
@@ -458,94 +458,182 @@
 <context>
     <name>ImageTools</name>
     <message>
-        <location filename="../../modules/image/hub.py" line="44" />
+        <location filename="../../modules/image/hub.py" line="56" />
         <source>Convert format</source>
         <translation type="unfinished">Format dönüştür</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="45" />
+        <location filename="../../modules/image/hub.py" line="57" />
         <source>Turn images into PNG, JPG or WebP.</source>
         <translation type="unfinished">Görselleri PNG, JPG veya WebP'ye çevirin.</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="51" />
+        <location filename="../../modules/image/hub.py" line="63" />
         <source>Resize</source>
         <translation type="unfinished">Boyutlandır</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="52" />
+        <location filename="../../modules/image/hub.py" line="64" />
         <source>Change dimensions by width, height or percent.</source>
         <translation type="unfinished">Boyutu genişlik, yükseklik veya yüzdeyle değiştirin.</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="60" />
+        <location filename="../../modules/image/hub.py" line="72" />
         <source>Crop &amp; rotate</source>
         <translation type="unfinished">Kırp ve döndür</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="61" />
+        <location filename="../../modules/image/hub.py" line="73" />
         <source>Crop by hand or to a fixed ratio, rotate 90°.</source>
         <translation type="unfinished">Elle veya sabit oranda kırpın, 90° döndürün.</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="69" />
+        <location filename="../../modules/image/hub.py" line="81" />
         <source>Compress</source>
         <translation type="unfinished">Sıkıştır</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="70" />
+        <location filename="../../modules/image/hub.py" line="82" />
         <source>Smaller files, same size and format.</source>
         <translation type="unfinished">Daha küçük dosya, aynı boyut ve format.</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="78" />
+        <location filename="../../modules/image/hub.py" line="90" />
         <source>Remove metadata</source>
         <translation type="unfinished">Meta veriyi kaldır</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="79" />
+        <location filename="../../modules/image/hub.py" line="91" />
         <source>Strip location, camera and date info (EXIF).</source>
         <translation type="unfinished">Konum, kamera ve tarih bilgisini (EXIF) silin.</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="86" />
+        <location filename="../../modules/image/hub.py" line="99" />
         <source>Watermark</source>
         <translation type="unfinished">Filigran</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="87" />
+        <location filename="../../modules/image/hub.py" line="100" />
         <source>Stamp text or a logo on your images.</source>
         <translation type="unfinished">Görsellere metin veya logo basın.</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="94" />
+        <location filename="../../modules/image/hub.py" line="108" />
         <source>Remove background</source>
         <translation type="unfinished">Arka planı kaldır</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="95" />
+        <location filename="../../modules/image/hub.py" line="109" />
         <source>Cut out the subject with an AI model.</source>
         <translation type="unfinished">Konuyu bir AI modeliyle kesip çıkarın.</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="102" />
+        <location filename="../../modules/image/hub.py" line="116" />
         <source>Upscale</source>
         <translation type="unfinished">Büyüt</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="103" />
+        <location filename="../../modules/image/hub.py" line="117" />
         <source>Enlarge images with AI super-resolution.</source>
         <translation type="unfinished">Görselleri AI super-resolution ile büyütün.</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="112" />
+        <location filename="../../modules/image/hub.py" line="126" />
         <source>IMAGE TOOLS</source>
         <translation type="unfinished">GÖRÜNTÜ ARAÇLARI</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="113" />
+        <location filename="../../modules/image/hub.py" line="127" />
         <source>Pick a task. Everything runs offline on this computer.</source>
         <translation type="unfinished">Bir iş seçin. Her şey bu bilgisayarda, çevrimdışı çalışır.</translation>
+    </message>
+</context>
+<context>
+    <name>MetadataTool</name>
+    <message>
+        <location filename="../../modules/image/metadata_tool.py" line="39" />
+        <source>Found in the selected file</source>
+        <translation type="unfinished">Seçili dosyada bulunanlar</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/metadata_tool.py" line="40" />
+        <source>Keep colour profile (ICC)</source>
+        <translation type="unfinished">Renk profilini koru (ICC)</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/metadata_tool.py" line="42" />
+        <source>A colour profile holds no personal data; removing it can shift colours.</source>
+        <translation type="unfinished">Renk profili kişisel veri içermez; silmek renkleri kaydırabilir.</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/metadata_tool.py" line="46" />
+        <source>JPEG, PNG and WebP are cleaned without re-encoding: no quality loss. Photo orientation is kept so images don't turn sideways.</source>
+        <translation type="unfinished">JPEG, PNG ve WebP yeniden sıkıştırılmadan temizlenir: kalite kaybı yok. Fotoğraf yönü korunur, görseller yan yatmaz.</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/metadata_tool.py" line="53" />
+        <source>Remove metadata</source>
+        <translation type="unfinished">Meta veriyi kaldır</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/metadata_tool.py" line="61" />
+        <source>Click an image to see what it contains.</source>
+        <translation type="unfinished">İçinde ne olduğunu görmek için bir görsele tıklayın.</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/metadata_tool.py" line="66" />
+        <source>Could not read: %1</source>
+        <translation type="unfinished">Okunamadı: %1</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/metadata_tool.py" line="71" />
+        <source>⚠ GPS location: where the photo was taken</source>
+        <translation type="unfinished">⚠ GPS konumu: fotoğrafın çekildiği yer</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/metadata_tool.py" line="73" />
+        <source>Camera: %1</source>
+        <translation type="unfinished">Kamera: %1</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/metadata_tool.py" line="75" />
+        <source>Date taken: %1</source>
+        <translation type="unfinished">Çekim tarihi: %1</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/metadata_tool.py" line="77" />
+        <source>Software: %1</source>
+        <translation type="unfinished">Yazılım: %1</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/metadata_tool.py" line="79" />
+        <source>XMP data (editing history, author)</source>
+        <translation type="unfinished">XMP verisi (düzenleme geçmişi, yazar)</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/metadata_tool.py" line="81" />
+        <source>IPTC data (captions, copyright, keywords)</source>
+        <translation type="unfinished">IPTC verisi (açıklama, telif, anahtar kelimeler)</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/metadata_tool.py" line="83" />
+        <source>Embedded comment</source>
+        <translation type="unfinished">Gömülü yorum</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/metadata_tool.py" line="85" />
+        <source>Other fields: %1</source>
+        <translation type="unfinished">Diğer alanlar: %1</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/metadata_tool.py" line="87" />
+        <source>No personal metadata found.</source>
+        <translation type="unfinished">Kişisel meta veri bulunamadı.</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/metadata_tool.py" line="89" />
+        <source>Colour profile (ICC)</source>
+        <translation type="unfinished">Renk profili (ICC)</translation>
     </message>
 </context>
 <context>
@@ -766,6 +854,134 @@
         <location filename="../../ui/tool_hub.py" line="149" />
         <source>← All tools</source>
         <translation type="unfinished">← Tüm araçlar</translation>
+    </message>
+</context>
+<context>
+    <name>WatermarkTool</name>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="218" />
+        <source>Text</source>
+        <translation type="unfinished">Metin</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="219" />
+        <source>Logo</source>
+        <translation type="unfinished">Logo</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="220" />
+        <source>© Your name</source>
+        <translation type="unfinished">© Adınız</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="221" />
+        <source>Colour</source>
+        <translation type="unfinished">Renk</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="222" />
+        <source>Choose logo...</source>
+        <translation type="unfinished">Logo seç...</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="224" />
+        <source>PNG with transparency works best</source>
+        <translation type="unfinished">En iyi sonuç şeffaf PNG ile alınır</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="226" />
+        <source>Position</source>
+        <translation type="unfinished">Konum</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="227" />
+        <source>Size</source>
+        <translation type="unfinished">Boyut</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="228" />
+        <source>Opacity</source>
+        <translation type="unfinished">Opaklık</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="230" />
+        <source>Top left</source>
+        <translation type="unfinished">Sol üst</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="231" />
+        <source>Top</source>
+        <translation type="unfinished">Üst</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="232" />
+        <source>Top right</source>
+        <translation type="unfinished">Sağ üst</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="233" />
+        <source>Left</source>
+        <translation type="unfinished">Sol</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="234" />
+        <source>Centre</source>
+        <translation type="unfinished">Orta</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="235" />
+        <source>Right</source>
+        <translation type="unfinished">Sağ</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="236" />
+        <source>Bottom left</source>
+        <translation type="unfinished">Sol alt</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="237" />
+        <source>Bottom</source>
+        <translation type="unfinished">Alt</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="238" />
+        <source>Bottom right</source>
+        <translation type="unfinished">Sağ alt</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="239" />
+        <source>Tiled across the image</source>
+        <translation type="unfinished">Görselin tamamına döşenmiş</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="246" />
+        <source>Add watermark</source>
+        <translation type="unfinished">Filigran ekle</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="292" />
+        <source>Watermark colour</source>
+        <translation type="unfinished">Filigran rengi</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="304" />
+        <source>Images</source>
+        <translation type="unfinished">Görseller</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="306" />
+        <source>Choose logo</source>
+        <translation type="unfinished">Logo seç</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="356" />
+        <source>Preview</source>
+        <translation type="unfinished">Önizleme</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/watermark_tool.py" line="360" />
+        <source>No preview</source>
+        <translation type="unfinished">Önizleme yok</translation>
     </message>
 </context>
 </TS>

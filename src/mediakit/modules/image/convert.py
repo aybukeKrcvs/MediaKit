@@ -73,6 +73,9 @@ def convert_image(
 
     with Image.open(source) as image:
         image.load()
+        # Colour profile: kept so wide-gamut photos (e.g. Display P3)
+        # don't come out washed out. EXIF is deliberately not carried.
+        icc_profile = image.info.get("icc_profile")
 
         if transforms:
             image = apply_all(image, transforms)
@@ -92,6 +95,8 @@ def convert_image(
         elif pil_format == "PNG":
             save_args.update(optimize=True)
 
+        if icc_profile:
+            save_args["icc_profile"] = icc_profile
         image.save(destination, format=pil_format, **save_args)
 
     return destination
