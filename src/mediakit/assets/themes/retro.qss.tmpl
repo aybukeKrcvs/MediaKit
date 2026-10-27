@@ -66,3 +66,106 @@ QWidget {
     font-weight: bold;
 }
 #ThemeButton:hover { background-color: $hover; }
+
+/* ---------- Image Convert Screen ---------- */
+QLabel#ScreenTitle {
+    color: $amber;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+QLabel#Muted  { color: $muted; }
+QLabel#Status { color: $ink; }
+
+QListWidget#FileList {
+    background: $panel;
+    border: 1px solid $line;
+    color: $ink;
+    padding: 4px;
+}
+QListWidget#FileList::item          { padding: 4px 6px; border-radius: 4px;}
+QListWidget#FileList::item:selected { background: $hover; color: $amber; }
+QListWidget#FileList::indicator {
+    width: 14px;
+    height: 14px;
+    border: 1px solid $line;
+    background: $panel2;
+}
+QListWidget#FileList::indicator:checked {
+    background: $amber;
+    border-color: $amber;
+}
+
+QProgressBar#Progress {
+    background: $panel2;
+    border: 1px solid $line;
+    height: 14px;
+    text-align: center;
+    color: $muted;
+}
+QProgressBar#Progress::chunk { background: $amber; }
+
+QPushButton#PrimaryButton {
+    background: $amber;
+    color: $bg;
+    border: none;
+    padding: 8px 18px;
+    font-weight: 600;
+}
+QPushButton#PrimaryButton:hover    { background: $ink; }
+QPushButton#PrimaryButton:disabled { background: $faint; color: $panel; }
+
+ImageConvertScreen QPushButton,
+ImageConvertScreen QComboBox {
+    background: $panel2;
+    color: $ink;
+    border: 1px solid $line;
+    padding: 6px 12px;
+}
+ImageConvertScreen QPushButton:hover,
+ImageConvertScreen QComboBox:hover {
+    background: $hover;
+    border-color: $amber;
+}
+ImageConvertScreen QPushButton:disabled,
+ImageConvertScreen QComboBox:disabled {
+    color: $faint;
+    border-color: $line;
+}
+ImageConvertScreen QComboBox QAbstractItemView {
+    background: $panel;
+    color: $ink;
+    border: 1px solid $line;
+    selection-background-color: $hover;
+}
+ImageConvertScreen QSlider::groove:horizontal {
+    height: 3px;
+    background: $line;
+}
+ImageConvertScreen QSlider::handle:horizontal {
+    background: $amber;
+    width: 10px;
+    margin: -5px 0;
+}
+
+ImageConvertScreen QSpinBox {
+    background: $panel2;
+    color: $ink;
+    border: 1px solid $line;
+    padding: 5px 8px;
+}
+ImageConvertScreen QSpinBox:hover    { border-color: $amber; }
+ImageConvertScreen QSpinBox:disabled { color: $faint; }
+
+ImageConvertScreen QCheckBox           { color: $ink; }
+ImageConvertScreen QCheckBox:disabled  { color: $faint; }
+ImageConvertScreen QCheckBox::indicator {
+    width: 14px;
+    height: 14px;
+    border: 1px solid $line;
+    background: $panel2;
+}
+ImageConvertScreen QCheckBox::indicator:checked {
+    background: $amber;
+    border-color: $amber;
+}

@@ -1,6 +1,7 @@
 from PySide6.QtCore import QEvent
 from PySide6.QtWidgets import QHBoxLayout, QMainWindow, QStackedWidget, QWidget
 
+from mediakit.modules.image.screen import ImageConvertScreen
 from mediakit.shell.i18n import LanguageManager
 from mediakit.shell.placeholder import PlaceholderScreen
 from mediakit.shell.sidebar import Sidebar
@@ -16,7 +17,7 @@ class MainWindow(QMainWindow):
         self.resize(900, 600)
 
         self.sidebar = Sidebar()
-        self.image_screen = PlaceholderScreen()
+        self.image_screen = ImageConvertScreen()
         self.audio_screen = PlaceholderScreen()
         self.pdf_screen = PlaceholderScreen()
 
@@ -42,9 +43,7 @@ class MainWindow(QMainWindow):
         self.sidebar.select(0)
 
     def retranslate(self) -> None:
-        self.image_screen.set_content(
-            self.tr("IMAGE TOOLS"), self.tr("format · resize · compress · upscale")
-        )
+        self.image_screen.retranslate()
         self.audio_screen.set_content(
             self.tr("AUDIO & SPEECH"), self.tr("transcribe · denoise · convert · TTS")
         )
