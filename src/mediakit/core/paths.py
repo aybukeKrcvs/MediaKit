@@ -9,7 +9,7 @@ from pathlib import Path
 class ConflictPolicy(StrEnum):
     """What to do when the target file already exists."""
 
-    RENAME = "rename"      # photo.png -> photo (1).png
+    RENAME = "rename"  # photo.png -> photo (1).png
     OVERWRITE = "overwrite"
     SKIP = "skip"
 
@@ -32,15 +32,23 @@ def resolve_output_path(
     out_dir: Path,
     extension: str,
     policy: ConflictPolicy = ConflictPolicy.RENAME,
+    suffix: str = "",
 ) -> Path | None:
     """Build the destination path for `source` inside `out_dir`.
 
     `extension` is given without a dot ('png', 'webp').
+    `suffix` is appended to the stem: photo.jpg -> photo_resized.jpg.
     Returns None when the file exists and the policy is SKIP.
+
+    The source file itself is never a valid target, whatever the policy:
+    it is still open for reading while we write, and overwriting the
+    only copy of a user's photo is not a recoverable mistake.
     """
     ext = extension.lower().lstrip(".")
-    target = out_dir / f"{source.stem}.{ext}"
+    target = out_dir / f"{source.stem}{suffix}.{ext}"
 
+    if target.resolve() == source.resolve():
+        return unique_path(target)
     if not target.exists():
         return target
     # `==` not `is`: Qt's QComboBox.currentData() can hand back a plain

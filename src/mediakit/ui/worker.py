@@ -16,9 +16,9 @@ from mediakit.core.batch import BatchReport, CancelToken, WorkFn, run_batch
 class BatchWorker(QObject):
     """Runs a batch on a worker thread and reports back with signals."""
 
-    progress = Signal(int, int, str)   # done, total, current file name
-    finished = Signal(object)          # BatchReport
-    failed = Signal(str)               # unexpected, batch-level error
+    progress = Signal(int, int, str)  # done, total, current file name
+    finished = Signal(object)  # BatchReport
+    failed = Signal(str)  # unexpected, batch-level error
 
     def __init__(self, items: list[Path], work: WorkFn, cancel: CancelToken) -> None:
         super().__init__()

@@ -18,6 +18,7 @@ def make_png(path: Path, size=(8, 8), alpha=False) -> Path:
 
 # ---------------------------------------------------------------- paths
 
+
 def test_resolve_rename(tmp_path):
     src = tmp_path / "a.png"
     (tmp_path / "a.jpg").write_bytes(b"x")
@@ -38,6 +39,23 @@ def test_resolve_overwrite(tmp_path):
     assert out.name == "a.jpg"
 
 
+def test_resolve_overwrite_accepts_plain_string(tmp_path):
+    """Regression: QComboBox.currentData() can hand back a plain str
+    instead of the ConflictPolicy member. `is` comparison silently
+    treats that as "no match" and falls through to rename - this
+    pins `==` as the required comparison."""
+    src = tmp_path / "a.png"
+    (tmp_path / "a.jpg").write_bytes(b"x")
+    out = resolve_output_path(src, tmp_path, "jpg", "overwrite")
+    assert out.name == "a.jpg"
+
+
+def test_resolve_skip_accepts_plain_string(tmp_path):
+    src = tmp_path / "a.png"
+    (tmp_path / "a.jpg").write_bytes(b"x")
+    assert resolve_output_path(src, tmp_path, "jpg", "skip") is None
+
+
 def test_collect_files_recursive(tmp_path):
     make_png(tmp_path / "one.png")
     make_png(tmp_path / "sub" / "two.png")
@@ -53,6 +71,7 @@ def test_collect_files_dedupes(tmp_path):
 
 
 # --------------------------------------------------------------- batch
+
 
 def test_run_batch_isolates_failures(tmp_path):
     items = [tmp_path / f"{i}.png" for i in range(3)]
@@ -96,6 +115,7 @@ def test_run_batch_progress_sequence(tmp_path):
 
 # ------------------------------------------------------------- convert
 
+
 def test_png_to_jpg_flattens_alpha(tmp_path):
     src = make_png(tmp_path / "t.png", alpha=True)
     dst = tmp_path / "t.jpg"
@@ -136,20 +156,3 @@ def test_convert_job_skip_policy(tmp_path):
     work = make_convert_job(out, "jpg", policy=ConflictPolicy.SKIP)
     report = run_batch([src], work)
     assert len(report.skipped) == 1
-
-
-def test_resolve_overwrite_accepts_plain_string(tmp_path):
-    """Regression: QComboBox.currentData() can hand back a plain str
-    instead of the ConflictPolicy member. `is` comparison silently
-    treats that as "no match" and falls through to rename - this
-    pins `==` as the required comparison."""
-    src = tmp_path / "a.png"
-    (tmp_path / "a.jpg").write_bytes(b"x")
-    out = resolve_output_path(src, tmp_path, "jpg", "overwrite")
-    assert out.name == "a.jpg"
-
-
-def test_resolve_skip_accepts_plain_string(tmp_path):
-    src = tmp_path / "a.png"
-    (tmp_path / "a.jpg").write_bytes(b"x")
-    assert resolve_output_path(src, tmp_path, "jpg", "skip") is None

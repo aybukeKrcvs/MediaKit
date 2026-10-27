@@ -67,7 +67,102 @@ QWidget {
 }
 #ThemeButton:hover { background-color: $hover; }
 
-/* ---------- Image Convert Screen ---------- */
+
+/* ================= Tool hub (cards) ================= */
+QScrollArea#HubScroll, QWidget#HubGrid,
+QScrollArea#TileStrip, QScrollArea#TileStrip > QWidget > QWidget {
+    background: transparent;
+    border: none;
+}
+
+QFrame#ToolCard {
+    background: $panel;
+    border: 1px solid $line;
+    border-radius: 10px;
+}
+QFrame#ToolCard:hover {
+    background: $hover;
+    border-color: $amber;
+}
+QFrame#ToolCard:focus {
+    border-color: $amber;
+}
+QFrame#ToolCard:disabled {
+    background: $bg;
+    border-style: dashed;
+}
+QFrame#ToolCard QLabel, QFrame#ToolCard GlyphIcon { background: transparent; }
+QLabel#ToolCardTitle {
+    color: $ink;
+    font-size: 15px;
+    font-weight: 700;
+}
+QLabel#ToolCardTitle:disabled { color: $muted; }
+QLabel#ToolCardDesc {
+    color: $muted;
+    font-size: 12px;
+}
+QLabel#SoonBadge {
+    color: $muted;
+    border: 1px solid $line;
+    border-radius: 3px;
+    padding: 1px 6px;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+GlyphIcon {
+    color: $ink;
+    qproperty-accent: $amber;
+}
+
+/* ================= Tool page ================= */
+QPushButton#BackButton {
+    background: transparent;
+    color: $muted;
+    border: none;
+    padding: 4px 0;
+    text-align: left;
+}
+QPushButton#BackButton:hover { color: $amber; }
+
+QLabel#SectionLabel {
+    color: $muted;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+ChoiceTile {
+    color: $ink;
+    qproperty-accent: $amber;
+    qproperty-line: $line;
+    qproperty-muted: $muted;
+    qproperty-panel: $panel;
+}
+
+QPushButton#SegmentButton {
+    background: $panel2;
+    color: $muted;
+    border: 1px solid $line;
+    padding: 6px 14px;
+}
+QPushButton#SegmentButton:checked {
+    color: $bg;
+    background: $amber;
+    border-color: $amber;
+}
+QPushButton#SegmentButton:hover:!checked { color: $ink; border-color: $amber; }
+
+CropCanvas {
+    background: $panel;
+    border: 1px solid $line;
+    qproperty-accent: $amber;
+}
+
+/* ================= Shared tool controls =================
+   BatchToolScreen matches every tool (type selectors include subclasses).
+   Replaces the old ImageConvertScreen-scoped rules. */
 QLabel#ScreenTitle {
     color: $amber;
     font-size: 20px;
@@ -83,7 +178,7 @@ QListWidget#FileList {
     color: $ink;
     padding: 4px;
 }
-QListWidget#FileList::item          { padding: 4px 6px; border-radius: 4px;}
+QListWidget#FileList::item          { padding: 4px 6px; border-radius: 4px; }
 QListWidget#FileList::item:selected { background: $hover; color: $amber; }
 QListWidget#FileList::indicator {
     width: 14px;
@@ -91,10 +186,7 @@ QListWidget#FileList::indicator {
     border: 1px solid $line;
     background: $panel2;
 }
-QListWidget#FileList::indicator:checked {
-    background: $amber;
-    border-color: $amber;
-}
+QListWidget#FileList::indicator:checked { background: $amber; border-color: $amber; }
 
 QProgressBar#Progress {
     background: $panel2;
@@ -109,63 +201,41 @@ QPushButton#PrimaryButton {
     background: $amber;
     color: $bg;
     border: none;
-    padding: 8px 18px;
+    padding: 8px 22px;
     font-weight: 600;
 }
 QPushButton#PrimaryButton:hover    { background: $ink; }
 QPushButton#PrimaryButton:disabled { background: $faint; color: $panel; }
 
-ImageConvertScreen QPushButton,
-ImageConvertScreen QComboBox {
+BatchToolScreen QPushButton,
+BatchToolScreen QComboBox,
+BatchToolScreen QSpinBox {
     background: $panel2;
     color: $ink;
     border: 1px solid $line;
     padding: 6px 12px;
 }
-ImageConvertScreen QPushButton:hover,
-ImageConvertScreen QComboBox:hover {
-    background: $hover;
-    border-color: $amber;
-}
-ImageConvertScreen QPushButton:disabled,
-ImageConvertScreen QComboBox:disabled {
-    color: $faint;
-    border-color: $line;
-}
-ImageConvertScreen QComboBox QAbstractItemView {
+BatchToolScreen QPushButton:hover,
+BatchToolScreen QComboBox:hover,
+BatchToolScreen QSpinBox:hover { background: $hover; border-color: $amber; }
+BatchToolScreen QPushButton:disabled,
+BatchToolScreen QComboBox:disabled,
+BatchToolScreen QSpinBox:disabled { color: $faint; border-color: $line; }
+BatchToolScreen QComboBox QAbstractItemView {
     background: $panel;
     color: $ink;
     border: 1px solid $line;
     selection-background-color: $hover;
 }
-ImageConvertScreen QSlider::groove:horizontal {
-    height: 3px;
-    background: $line;
-}
-ImageConvertScreen QSlider::handle:horizontal {
-    background: $amber;
-    width: 10px;
-    margin: -5px 0;
-}
-
-ImageConvertScreen QSpinBox {
-    background: $panel2;
-    color: $ink;
-    border: 1px solid $line;
-    padding: 5px 8px;
-}
-ImageConvertScreen QSpinBox:hover    { border-color: $amber; }
-ImageConvertScreen QSpinBox:disabled { color: $faint; }
-
-ImageConvertScreen QCheckBox           { color: $ink; }
-ImageConvertScreen QCheckBox:disabled  { color: $faint; }
-ImageConvertScreen QCheckBox::indicator {
+BatchToolScreen QCheckBox          { color: $ink; }
+BatchToolScreen QCheckBox:disabled { color: $faint; }
+BatchToolScreen QCheckBox::indicator {
     width: 14px;
     height: 14px;
     border: 1px solid $line;
     background: $panel2;
 }
-ImageConvertScreen QCheckBox::indicator:checked {
-    background: $amber;
-    border-color: $amber;
-}
+BatchToolScreen QCheckBox::indicator:checked { background: $amber; border-color: $amber; }
+BatchToolScreen QSlider::groove:horizontal { height: 3px; background: $line; }
+BatchToolScreen QSlider::handle:horizontal { background: $amber; width: 10px; margin: -5px 0; }
+BatchToolScreen QLabel { color: $ink; }

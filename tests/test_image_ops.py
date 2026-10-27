@@ -17,6 +17,7 @@ def img(w, h, mode="RGB"):
 
 # --------------------------------------------------------------- resize
 
+
 def test_resize_max_width_keeps_aspect():
     out = make_resize(ResizeMode.MAX_WIDTH, width=100)(img(400, 200))
     assert out.size == (100, 50)
@@ -65,6 +66,7 @@ def test_resize_never_produces_zero_dimension():
 
 # --------------------------------------------------------------- rotate
 
+
 def test_rotate_90_swaps_dimensions():
     out = make_rotate(Rotation.CW_90)(img(400, 200))
     assert out.size == (200, 400)
@@ -90,10 +92,11 @@ def test_rotate_cw_and_ccw_are_opposite():
 
 # ------------------------------------------------------------- pipeline
 
+
 def test_apply_all_runs_in_order():
     transforms = [
         make_resize(ResizeMode.MAX_WIDTH, width=100),  # 400x200 -> 100x50
-        make_rotate(Rotation.CW_90),                   # 100x50 -> 50x100
+        make_rotate(Rotation.CW_90),  # 100x50 -> 50x100
     ]
     out = apply_all(img(400, 200), transforms)
     assert out.size == (50, 100)

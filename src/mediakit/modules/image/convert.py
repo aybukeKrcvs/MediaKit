@@ -1,8 +1,12 @@
-"""Image format conversion. Pure domain logic: Pillow only, no Qt."""
+"""Image encode pipeline. Pure domain logic: Pillow only, no Qt.
+
+decode -> transforms -> encode. Every image tool (convert, resize,
+crop, compress) is this same pipeline with different transforms and
+encode settings, so they all go through `make_image_job`.
+"""
 
 from __future__ import annotations
 
-from functools import partial
 from pathlib import Path
 
 from PIL import Image
@@ -24,6 +28,19 @@ _PIL_FORMAT = {"jpg": "JPEG", "jpeg": "JPEG", "png": "PNG", "webp": "WEBP"}
 _NO_ALPHA = {"JPEG"}
 
 DEFAULT_BACKGROUND = (255, 255, 255)
+DEFAULT_QUALITY = 92
+
+
+def keep_format_extension(source: Path) -> str:
+    """Output extension for tools that should not change the format.
+
+    Inputs we can read but not write (bmp, tiff, gif) fall back to png:
+    lossless, so nothing is lost by the forced change.
+    """
+    ext = source.suffix.lower().lstrip(".")
+    if ext == "jpeg":
+        return "jpg"
+    return ext if ext in _PIL_FORMAT else "png"
 
 
 def flatten_alpha(image: Image.Image, background: tuple[int, int, int]) -> Image.Image:
@@ -38,11 +55,15 @@ def flatten_alpha(image: Image.Image, background: tuple[int, int, int]) -> Image
 def convert_image(
     source: Path,
     destination: Path,
-    quality: int = 90,
+    quality: int = DEFAULT_QUALITY,
     background: tuple[int, int, int] = DEFAULT_BACKGROUND,
     transforms: list[Transform] | None = None,
 ) -> Path:
-    """Decode `source`, re-encode it to `destination`'s format."""
+    """Decode `source`, apply transforms, re-encode to `destination`.
+
+    Transforms run on the decoded image before any mode conversion, so
+    resize/rotate still see the original alpha channel.
+    """
     ext = destination.suffix.lower().lstrip(".")
     pil_format = _PIL_FORMAT.get(ext)
     if pil_format is None:
@@ -76,22 +97,26 @@ def convert_image(
     return destination
 
 
-def make_convert_job(
-    out_dir: Path,
-    target_format: str,
-    quality: int = 90,
+def make_image_job(
+    out_dir: Path | None,
     policy: ConflictPolicy = ConflictPolicy.RENAME,
-    background: tuple[int, int, int] = DEFAULT_BACKGROUND,
     transforms: list[Transform] | None = None,
+    target_format: str | None = None,
+    quality: int = DEFAULT_QUALITY,
+    suffix: str = "",
+    background: tuple[int, int, int] = DEFAULT_BACKGROUND,
 ) -> WorkFn:
     """Build a one-argument callable for `core.batch.run_batch`.
 
-    This is the seam between the generic batch runner and this module:
-    the runner only ever sees `work(path) -> path | None`.
+    `out_dir=None` writes next to each source file (so a batch spanning
+    several folders keeps its structure). `target_format=None` keeps
+    each file's own format.
     """
 
     def work(source: Path) -> Path | None:
-        destination = resolve_output_path(source, out_dir, target_format, policy)
+        ext = target_format or keep_format_extension(source)
+        directory = out_dir if out_dir is not None else source.parent
+        destination = resolve_output_path(source, directory, ext, policy, suffix)
         if destination is None:
             return None  # skipped by policy
         return convert_image(
@@ -105,5 +130,20 @@ def make_convert_job(
     return work
 
 
-# Convenience for single-file use (Phase 1a behaviour kept alive).
-convert_one = partial(convert_image)
+def make_convert_job(
+    out_dir: Path,
+    target_format: str,
+    quality: int = 90,
+    policy: ConflictPolicy = ConflictPolicy.RENAME,
+    background: tuple[int, int, int] = DEFAULT_BACKGROUND,
+    transforms: list[Transform] | None = None,
+) -> WorkFn:
+    """Phase 1b entry point, kept as a thin wrapper for existing callers."""
+    return make_image_job(
+        out_dir,
+        policy=policy,
+        transforms=transforms,
+        target_format=target_format,
+        quality=quality,
+        background=background,
+    )
