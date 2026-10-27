@@ -208,7 +208,13 @@ class ChoiceTile(QAbstractButton):
         drawing_color = self._accent if checked else ink
         # Padding scales with the tile so small icon-only tiles stay legible.
         pad = max(5.0, min(12.0, tile.height() * 0.16))
+        # Hand the drawing a clean painter: the panel brush set above
+        # would otherwise fill every shape it draws (drawRect/drawEllipse
+        # use the current brush) and hide colours painted underneath.
+        p.save()
+        p.setBrush(Qt.BrushStyle.NoBrush)
         self._drawing(p, tile.adjusted(pad, pad, -pad, -pad), drawing_color, self._accent)
+        p.restore()
 
         if has_text:
             font = QFont(self.font())

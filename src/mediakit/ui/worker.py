@@ -6,6 +6,7 @@ a plain QObject; `moveToThread` puts its slots on the worker thread.
 
 from __future__ import annotations
 
+from collections.abc import Callable
 from pathlib import Path
 
 from PySide6.QtCore import QObject, QThread, Signal
@@ -81,6 +82,67 @@ class BatchJob(QObject):
     def _on_finished(self, report: BatchReport) -> None:
         self._shutdown()
         self.finished.emit(report)
+
+    def _on_failed(self, message: str) -> None:
+        self._shutdown()
+        self.failed.emit(message)
+
+
+# on_progress(done, total) - units are up to the task (bytes, steps...)
+TaskFn = Callable[[Callable[[int, int], None], CancelToken], object]
+
+
+class _TaskWorker(QObject):
+    progress = Signal(object, object)  # done, total (object: ints > 2**31)
+    finished = Signal(object)
+    failed = Signal(str)
+
+    def __init__(self, fn: TaskFn, cancel: CancelToken) -> None:
+        super().__init__()
+        self._fn = fn
+        self._cancel = cancel
+
+    def run(self) -> None:
+        try:
+            result = self._fn(lambda d, t: self.progress.emit(d, t), self._cancel)
+        except Exception as exc:  # noqa: BLE001 - reported to the UI
+            self.failed.emit(str(exc))
+            return
+        self.finished.emit(result)
+
+
+class TaskJob(QObject):
+    """One long-running call (model download, single preview) on a
+    worker thread. Same lifetime rules as BatchJob."""
+
+    progress = Signal(object, object)
+    finished = Signal(object)
+    failed = Signal(str)
+
+    def __init__(self, fn: TaskFn, parent: QObject | None = None) -> None:
+        super().__init__(parent)
+        self.cancel_token = CancelToken()
+        self._thread = QThread()
+        self._worker = _TaskWorker(fn, self.cancel_token)
+        self._worker.moveToThread(self._thread)
+        self._thread.started.connect(self._worker.run)
+        self._worker.progress.connect(self.progress)
+        self._worker.finished.connect(self._on_finished)
+        self._worker.failed.connect(self._on_failed)
+
+    def start(self) -> None:
+        self._thread.start()
+
+    def cancel(self) -> None:
+        self.cancel_token.cancel()
+
+    def _shutdown(self) -> None:
+        self._thread.quit()
+        self._thread.wait()
+
+    def _on_finished(self, result: object) -> None:
+        self._shutdown()
+        self.finished.emit(result)
 
     def _on_failed(self, message: str) -> None:
         self._shutdown()

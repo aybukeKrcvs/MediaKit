@@ -73,7 +73,7 @@ def size_of(path):
 
 
 def test_coming_soon_tool_does_not_open(hub):
-    hub.open_tool("background")
+    hub.open_tool("upscale")
     assert hub.current_tool() is None
 
 
@@ -223,3 +223,91 @@ def test_watermark_logo_mode_requires_logo(app, hub, images):
     app.processEvents()
     assert tool.logo_row.isVisibleTo(tool) and not tool.text_row.isVisibleTo(tool)
     assert not tool.run_btn.isEnabled()
+
+
+# ------------------------------------------------------------------ 1d
+
+
+def _wait(app, predicate, timeout_ms=60000):
+    loop = QEventLoop()
+    timer = QTimer()
+    timer.timeout.connect(lambda: loop.quit() if predicate() else None)
+    timer.start(20)
+    QTimer.singleShot(timeout_ms, loop.quit)
+    loop.exec()
+
+
+def test_background_tool_without_model_cannot_run(app, images, tmp_path):
+    from mediakit.core.models import ModelStore
+    from mediakit.modules.image.background_tool import BackgroundTool
+
+    tool = BackgroundTool(store=ModelStore(tmp_path / "empty"))
+    tool.show()
+    tool.add_paths([images])
+    app.processEvents()
+    assert not tool.run_btn.isEnabled()
+    assert tool.download_btn.isVisibleTo(tool)
+    assert not tool.preview_btn.isEnabled()
+
+
+def test_background_tool_download_flow(app, images, tmp_path, monkeypatch):
+    import dataclasses
+    import hashlib
+
+    from mediakit.core.models import ModelSpec, ModelStore
+    from mediakit.modules.image import background
+    from mediakit.modules.image.background_tool import BackgroundTool
+
+    blob = b"x" * 2_500_000
+    remote = tmp_path / "remote.onnx"
+    remote.write_bytes(blob)
+    fake = ModelSpec(
+        "fake", "fake.onnx", remote.as_uri(), hashlib.sha256(blob).hexdigest(), len(blob), "MIT"
+    )
+    monkeypatch.setitem(
+        background.MODELS,
+        "standard",
+        dataclasses.replace(background.MODELS["standard"], spec=fake),
+    )
+
+    tool = BackgroundTool(store=ModelStore(tmp_path / "cache"))
+    tool.show()
+    tool.add_paths([images])
+    tool.download_btn.click()
+    _wait(app, lambda: tool._download is None)
+    assert (tmp_path / "cache" / "fake.onnx").exists()
+    assert not tool.download_btn.isVisibleTo(tool)
+    assert tool.run_btn.isEnabled()
+
+
+_REAL = None
+
+
+def _real_store():
+    from mediakit.core.models import ModelStore
+    from mediakit.modules.image.background import MODELS
+
+    store = ModelStore()
+    return store if store.is_installed(MODELS["fast"].spec) else None
+
+
+@pytest.mark.skipif(_real_store() is None, reason="model not downloaded")
+def test_background_tool_preview_and_batch(app, images, tmp_path):
+    from mediakit.modules.image.background_tool import MODEL_KEYS, BackgroundTool
+
+    tool = BackgroundTool(store=_real_store())
+    tool.show()
+    tool.model_tiles[MODEL_KEYS.index("fast")].click()
+    tool.add_paths([images / "wide.jpg"])
+    tool.file_list.setCurrentRow(0)
+    app.processEvents()
+
+    tool.preview_btn.click()
+    _wait(app, lambda: tool._preview_job is None)
+    assert tool.preview.pixmap() is not None and not tool.preview.pixmap().isNull()
+
+    tool._out_dir = tmp_path / "out"
+    run(app, tool)
+    out = tmp_path / "out" / "wide_nobg.png"
+    with Image.open(out) as image:
+        assert image.mode == "RGBA" and image.size == (1600, 900)

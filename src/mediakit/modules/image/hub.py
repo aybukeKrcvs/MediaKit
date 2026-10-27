@@ -48,6 +48,12 @@ def _watermark():
     return WatermarkTool()
 
 
+def _background():
+    from mediakit.modules.image.background_tool import BackgroundTool
+
+    return BackgroundTool()
+
+
 def image_tool_specs() -> list[ToolSpec]:
     return [
         ToolSpec(
@@ -109,6 +115,7 @@ def image_tool_specs() -> list[ToolSpec]:
             lambda: QCoreApplication.translate(
                 "ImageTools", "Cut out the subject with an AI model."
             ),
+            _background,
         ),
         ToolSpec(
             "upscale",
