@@ -8,11 +8,35 @@ a = Analysis(
     datas=[
         ('src/mediakit/assets', 'mediakit/assets'),
     ],
-    hiddenimports=[],
+    # onnxruntime loads its execution providers by name at runtime, so
+    # PyInstaller cannot see them in the import graph.
+    hiddenimports=[
+        'onnxruntime',
+        'onnxruntime.capi._pybind_state',
+        'onnxruntime.capi.onnxruntime_validation',
+    ],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
-    excludes=[],
+    # Pulled in by numpy/Pillow/onnxruntime but never used by the app.
+    # Each one costs tens of MB in the installer.
+    excludes=[
+        'tkinter',
+        'matplotlib',
+        'scipy',
+        'pandas',
+        'IPython',
+        'pytest',
+        'PySide6.QtQml',
+        'PySide6.QtQuick',
+        'PySide6.QtQuick3D',
+        'PySide6.QtWebEngineCore',
+        'PySide6.Qt3DCore',
+        'PySide6.QtCharts',
+        'PySide6.QtDataVisualization',
+        'PySide6.QtMultimedia',
+        'PySide6.QtPdf',
+    ],
     noarchive=False,
     optimize=0,
 )
@@ -27,8 +51,8 @@ exe = EXE(
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
-    upx=True,
-    console=True,
+    upx=False,
+    console=False,  # GUI app: no console window behind it
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
@@ -40,7 +64,7 @@ coll = COLLECT(
     a.binaries,
     a.datas,
     strip=False,
-    upx=True,
+    upx=False,
     upx_exclude=[],
     name='mediakit',
 )

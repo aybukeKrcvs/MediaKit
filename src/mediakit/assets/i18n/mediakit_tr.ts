@@ -66,147 +66,97 @@
 <context>
     <name>BackgroundTool</name>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="203" />
-        <source>Model</source>
-        <translation type="unfinished">Model</translation>
-    </message>
-    <message>
-        <location filename="../../modules/image/background_tool.py" line="204" />
+        <location filename="../../modules/image/background_tool.py" line="162" />
         <source>New background</source>
         <translation type="unfinished">Yeni arka plan</translation>
     </message>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="206" />
+        <location filename="../../modules/image/background_tool.py" line="164" />
         <source>Fast</source>
         <translation type="unfinished">Hızlı</translation>
     </message>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="206" />
+        <location filename="../../modules/image/background_tool.py" line="164" />
         <source>Quick, softer edges.</source>
         <translation type="unfinished">Hızlı, kenarlar daha yumuşak.</translation>
     </message>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="207" />
+        <location filename="../../modules/image/background_tool.py" line="165" />
         <source>Standard</source>
         <translation type="unfinished">Standart</translation>
     </message>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="207" />
+        <location filename="../../modules/image/background_tool.py" line="165" />
         <source>Cleaner edges, a few seconds per image.</source>
         <translation type="unfinished">Daha temiz kenarlar, görsel başına birkaç saniye.</translation>
     </message>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="213" />
+        <location filename="../../modules/image/background_tool.py" line="170" />
         <source>None</source>
         <translation type="unfinished">Yok</translation>
     </message>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="213" />
+        <location filename="../../modules/image/background_tool.py" line="170" />
         <source>Transparent PNG</source>
         <translation type="unfinished">Şeffaf PNG</translation>
     </message>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="214" />
+        <location filename="../../modules/image/background_tool.py" line="171" />
         <source>White</source>
         <translation type="unfinished">Beyaz</translation>
     </message>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="214" />
+        <location filename="../../modules/image/background_tool.py" line="171" />
         <source>White background, saved as JPG</source>
         <translation type="unfinished">Beyaz arka plan, JPG olarak kaydedilir</translation>
     </message>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="215" />
+        <location filename="../../modules/image/background_tool.py" line="172" />
         <source>Colour</source>
         <translation type="unfinished">Renk</translation>
     </message>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="215" />
+        <location filename="../../modules/image/background_tool.py" line="172" />
         <source>Any colour, saved as JPG</source>
         <translation type="unfinished">İstediğiniz renk, JPG olarak kaydedilir</translation>
     </message>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="219" />
+        <location filename="../../modules/image/background_tool.py" line="176" />
         <source>Pick colour...</source>
         <translation type="unfinished">Renk seç...</translation>
     </message>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="220" />
+        <location filename="../../modules/image/background_tool.py" line="177" />
         <source>Crop to the subject</source>
         <translation type="unfinished">Konuya göre kırp</translation>
     </message>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="221" />
-        <source>Cancel</source>
-        <translation type="unfinished">İptal</translation>
-    </message>
-    <message>
-        <location filename="../../modules/image/background_tool.py" line="222" />
+        <location filename="../../modules/image/background_tool.py" line="178" />
         <source>Preview selected image</source>
         <translation type="unfinished">Seçili görseli önizle</translation>
     </message>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="224" />
+        <location filename="../../modules/image/background_tool.py" line="180" />
         <source>Preview</source>
         <translation type="unfinished">Önizleme</translation>
     </message>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="225" />
-        <source>Runs on: %1</source>
-        <translation type="unfinished">Çalıştığı yer: %1</translation>
-    </message>
-    <message>
-        <location filename="../../modules/image/background_tool.py" line="229" />
+        <location filename="../../modules/image/background_tool.py" line="183" />
         <source>Remove background</source>
         <translation type="unfinished">Arka planı kaldır</translation>
     </message>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="264" />
-        <source>Download (%1 MB)</source>
-        <translation type="unfinished">İndir (%1 MB)</translation>
-    </message>
-    <message>
-        <location filename="../../modules/image/background_tool.py" line="266" />
-        <source>Downloading...</source>
-        <translation type="unfinished">İndiriliyor...</translation>
-    </message>
-    <message>
-        <location filename="../../modules/image/background_tool.py" line="268" />
-        <source>✓ Model installed, works offline</source>
-        <translation type="unfinished">✓ Model kurulu, çevrimdışı çalışır</translation>
-    </message>
-    <message>
-        <location filename="../../modules/image/background_tool.py" line="270" />
-        <source>Needs a one-time download.</source>
-        <translation type="unfinished">Bir kerelik indirme gerekiyor.</translation>
-    </message>
-    <message>
-        <location filename="../../modules/image/background_tool.py" line="307" />
-        <source>Download cancelled.</source>
-        <translation type="unfinished">İndirme iptal edildi.</translation>
-    </message>
-    <message>
-        <location filename="../../modules/image/background_tool.py" line="309" />
-        <source>Download failed: %1</source>
-        <translation type="unfinished">İndirme başarısız: %1</translation>
-    </message>
-    <message>
-        <location filename="../../modules/image/background_tool.py" line="311" />
-        <source>Model ready.</source>
-        <translation type="unfinished">Model hazır.</translation>
-    </message>
-    <message>
-        <location filename="../../modules/image/background_tool.py" line="322" />
+        <location filename="../../modules/image/background_tool.py" line="231" />
         <source>Background colour</source>
         <translation type="unfinished">Arka plan rengi</translation>
     </message>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="356" />
+        <location filename="../../modules/image/background_tool.py" line="265" />
         <source>Working...</source>
         <translation type="unfinished">Çalışıyor...</translation>
     </message>
     <message>
-        <location filename="../../modules/image/background_tool.py" line="372" />
+        <location filename="../../modules/image/background_tool.py" line="282" />
         <source>Preview failed: %1</source>
         <translation type="unfinished">Önizleme başarısız: %1</translation>
     </message>
@@ -214,127 +164,127 @@
 <context>
     <name>BatchTool</name>
     <message>
-        <location filename="../../ui/batch_tool.py" line="99" />
+        <location filename="../../ui/batch_tool.py" line="107" />
         <source>Start</source>
         <translation type="unfinished">Başlat</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="268" />
+        <location filename="../../ui/batch_tool.py" line="281" />
         <source>Add files</source>
         <translation type="unfinished">Dosya ekle</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="269" />
+        <location filename="../../ui/batch_tool.py" line="282" />
         <source>Add folder</source>
         <translation type="unfinished">Klasör ekle</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="270" />
+        <location filename="../../ui/batch_tool.py" line="283" />
         <source>Select all</source>
         <translation type="unfinished">Tümünü seç</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="271" />
+        <location filename="../../ui/batch_tool.py" line="284" />
         <source>Select none</source>
         <translation type="unfinished">Hiçbirini seçme</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="272" />
+        <location filename="../../ui/batch_tool.py" line="285" />
         <source>Clear list</source>
         <translation type="unfinished">Listeyi temizle</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="273" />
+        <location filename="../../ui/batch_tool.py" line="286" />
         <source>Output folder...</source>
-        <translation type="unfinished">Çıktı formatı</translation>
+        <translation type="unfinished">Çıktı klasörü...</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="274" />
+        <location filename="../../ui/batch_tool.py" line="287" />
         <source>If file exists</source>
         <translation type="unfinished">Dosya varsa</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="275" />
+        <location filename="../../ui/batch_tool.py" line="288" />
         <source>Cancel</source>
         <translation type="unfinished">İptal</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="277" />
+        <location filename="../../ui/batch_tool.py" line="290" />
         <source>Keep both</source>
         <translation type="unfinished">İkisini de tut</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="278" />
+        <location filename="../../ui/batch_tool.py" line="291" />
         <source>Overwrite</source>
         <translation type="unfinished">Üzerine yaz</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="279" />
+        <location filename="../../ui/batch_tool.py" line="292" />
         <source>Skip</source>
         <translation type="unfinished">Atla</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="291" />
+        <location filename="../../ui/batch_tool.py" line="304" />
         <source>Same folder as each source file</source>
         <translation type="unfinished">Her dosyanın kendi klasörü</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="300" />
+        <location filename="../../ui/batch_tool.py" line="313" />
         <source>Add files to begin.</source>
         <translation type="unfinished">Başlamak için dosya ekleyin.</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="306" />
+        <location filename="../../ui/batch_tool.py" line="319" />
         <source>Click an image to edit it.</source>
         <translation type="unfinished">Düzenlemek için bir görsele tıklayın.</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="313" />
+        <location filename="../../ui/batch_tool.py" line="326" />
         <source>All files excluded.</source>
         <translation type="unfinished">Tüm dosyalar hariç tutuldu.</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="316" />
+        <location filename="../../ui/batch_tool.py" line="329" />
         <source>%n file(s) ready.</source>
         <translation type="unfinished">%n dosya hazır.</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="323" />
+        <location filename="../../ui/batch_tool.py" line="336" />
         <source>Supported files</source>
         <translation type="unfinished">Desteklenen dosyalar</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="326" />
+        <location filename="../../ui/batch_tool.py" line="339" />
         <source>Select files</source>
         <translation type="unfinished">Dosya seç</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="334" />
+        <location filename="../../ui/batch_tool.py" line="347" />
         <source>Select folder</source>
         <translation type="unfinished">Klasör seç</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="370" />
+        <location filename="../../ui/batch_tool.py" line="383" />
         <source>Select output folder</source>
         <translation type="unfinished">Çıktı klasörünü seç</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="452" />
+        <location filename="../../ui/batch_tool.py" line="467" />
         <source>Cancelling...</source>
         <translation type="unfinished">İptal ediliyor...</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="457" />
+        <location filename="../../ui/batch_tool.py" line="473" />
         <source>Processing: %1</source>
         <translation type="unfinished">İşleniyor: %1</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="478" />
+        <location filename="../../ui/batch_tool.py" line="500" />
         <source>cancelled</source>
         <translation type="unfinished">iptal edildi</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="488" />
+        <location filename="../../ui/batch_tool.py" line="510" />
         <source>Error: %1</source>
         <translation type="unfinished">Hata: %1</translation>
     </message>
@@ -606,92 +556,92 @@
 <context>
     <name>ImageTools</name>
     <message>
-        <location filename="../../modules/image/hub.py" line="62" />
+        <location filename="../../modules/image/hub.py" line="68" />
         <source>Convert format</source>
         <translation type="unfinished">Format dönüştür</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="63" />
+        <location filename="../../modules/image/hub.py" line="69" />
         <source>Turn images into PNG, JPG or WebP.</source>
         <translation type="unfinished">Görselleri PNG, JPG veya WebP'ye çevirin.</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="69" />
+        <location filename="../../modules/image/hub.py" line="75" />
         <source>Resize</source>
         <translation type="unfinished">Boyutlandır</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="70" />
+        <location filename="../../modules/image/hub.py" line="76" />
         <source>Change dimensions by width, height or percent.</source>
         <translation type="unfinished">Boyutu genişlik, yükseklik veya yüzdeyle değiştirin.</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="78" />
+        <location filename="../../modules/image/hub.py" line="84" />
         <source>Crop &amp; rotate</source>
         <translation type="unfinished">Kırp ve döndür</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="79" />
+        <location filename="../../modules/image/hub.py" line="85" />
         <source>Crop by hand or to a fixed ratio, rotate 90°.</source>
         <translation type="unfinished">Elle veya sabit oranda kırpın, 90° döndürün.</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="87" />
+        <location filename="../../modules/image/hub.py" line="93" />
         <source>Compress</source>
         <translation type="unfinished">Sıkıştır</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="88" />
+        <location filename="../../modules/image/hub.py" line="94" />
         <source>Smaller files, same size and format.</source>
         <translation type="unfinished">Daha küçük dosya, aynı boyut ve format.</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="96" />
+        <location filename="../../modules/image/hub.py" line="102" />
         <source>Remove metadata</source>
         <translation type="unfinished">Meta veriyi kaldır</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="97" />
+        <location filename="../../modules/image/hub.py" line="103" />
         <source>Strip location, camera and date info (EXIF).</source>
         <translation type="unfinished">Konum, kamera ve tarih bilgisini (EXIF) silin.</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="105" />
+        <location filename="../../modules/image/hub.py" line="111" />
         <source>Watermark</source>
         <translation type="unfinished">Filigran</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="106" />
+        <location filename="../../modules/image/hub.py" line="112" />
         <source>Stamp text or a logo on your images.</source>
         <translation type="unfinished">Görsellere metin veya logo basın.</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="114" />
+        <location filename="../../modules/image/hub.py" line="120" />
         <source>Remove background</source>
         <translation type="unfinished">Arka planı kaldır</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="115" />
+        <location filename="../../modules/image/hub.py" line="121" />
         <source>Cut out the subject with an AI model.</source>
         <translation type="unfinished">Konuyu bir AI modeliyle kesip çıkarın.</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="123" />
+        <location filename="../../modules/image/hub.py" line="129" />
         <source>Upscale</source>
         <translation type="unfinished">Büyüt</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="124" />
+        <location filename="../../modules/image/hub.py" line="130" />
         <source>Enlarge images with AI super-resolution.</source>
         <translation type="unfinished">Görselleri AI super-resolution ile büyütün.</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="133" />
+        <location filename="../../modules/image/hub.py" line="140" />
         <source>IMAGE TOOLS</source>
         <translation type="unfinished">GÖRÜNTÜ ARAÇLARI</translation>
     </message>
     <message>
-        <location filename="../../modules/image/hub.py" line="134" />
+        <location filename="../../modules/image/hub.py" line="141" />
         <source>Pick a task. Everything runs offline on this computer.</source>
         <translation type="unfinished">Bir iş seçin. Her şey bu bilgisayarda, çevrimdışı çalışır.</translation>
     </message>
@@ -782,6 +732,59 @@
         <location filename="../../modules/image/metadata_tool.py" line="89" />
         <source>Colour profile (ICC)</source>
         <translation type="unfinished">Renk profili (ICC)</translation>
+    </message>
+</context>
+<context>
+    <name>ModelPanel</name>
+    <message>
+        <location filename="../../ui/model_panel.py" line="138" />
+        <source>Model</source>
+        <translation type="unfinished">Model</translation>
+    </message>
+    <message>
+        <location filename="../../ui/model_panel.py" line="139" />
+        <source>Cancel</source>
+        <translation type="unfinished">İptal</translation>
+    </message>
+    <message>
+        <location filename="../../ui/model_panel.py" line="141" />
+        <source>Runs on: %1</source>
+        <translation type="unfinished">Çalıştığı yer: %1</translation>
+    </message>
+    <message>
+        <location filename="../../ui/model_panel.py" line="156" />
+        <source>Download (%1 MB)</source>
+        <translation type="unfinished">İndir (%1 MB)</translation>
+    </message>
+    <message>
+        <location filename="../../ui/model_panel.py" line="161" />
+        <source>Downloading...</source>
+        <translation type="unfinished">İndiriliyor...</translation>
+    </message>
+    <message>
+        <location filename="../../ui/model_panel.py" line="164" />
+        <source>✓ Model installed, works offline</source>
+        <translation type="unfinished">✓ Model kurulu, çevrimdışı çalışır</translation>
+    </message>
+    <message>
+        <location filename="../../ui/model_panel.py" line="168" />
+        <source>Needs a one-time download.</source>
+        <translation type="unfinished">Bir kerelik indirme gerekiyor.</translation>
+    </message>
+    <message>
+        <location filename="../../ui/model_panel.py" line="207" />
+        <source>Download cancelled.</source>
+        <translation type="unfinished">İndirme iptal edildi.</translation>
+    </message>
+    <message>
+        <location filename="../../ui/model_panel.py" line="210" />
+        <source>Download failed: %1</source>
+        <translation type="unfinished">İndirme başarısız: %1</translation>
+    </message>
+    <message>
+        <location filename="../../ui/model_panel.py" line="213" />
+        <source>Model ready.</source>
+        <translation type="unfinished">Model hazır.</translation>
     </message>
 </context>
 <context>
@@ -1002,6 +1005,94 @@
         <location filename="../../ui/tool_hub.py" line="149" />
         <source>← All tools</source>
         <translation type="unfinished">← Tüm araçlar</translation>
+    </message>
+</context>
+<context>
+    <name>UpscaleTool</name>
+    <message>
+        <location filename="../../modules/image/upscale_tool.py" line="162" />
+        <source>Fast</source>
+        <translation type="unfinished">Hızlı</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/upscale_tool.py" line="163" />
+        <source>Small model, seconds per image. Good for most photos.</source>
+        <translation type="unfinished">Küçük model, görsel başına saniyeler. Çoğu fotoğraf için yeterli.</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/upscale_tool.py" line="166" />
+        <source>Quality</source>
+        <translation type="unfinished">Kalite</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/upscale_tool.py" line="167" />
+        <source>Sharper detail. Much slower, best on a GPU.</source>
+        <translation type="unfinished">Daha keskin detay. Çok daha yavaş, en iyisi GPU'da.</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/upscale_tool.py" line="172" />
+        <source>Enlarge</source>
+        <translation type="unfinished">Büyütme</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/upscale_tool.py" line="173" />
+        <source>Twice the width and height</source>
+        <translation type="unfinished">Genişlik ve yüksekliğin iki katı</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/upscale_tool.py" line="174" />
+        <source>Four times the width and height</source>
+        <translation type="unfinished">Genişlik ve yüksekliğin dört katı</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/upscale_tool.py" line="176" />
+        <source>No GPU found: large images can take minutes each on the CPU.</source>
+        <translation type="unfinished">GPU bulunamadı: büyük görseller CPU'da tanesi dakikalar sürebilir.</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/upscale_tool.py" line="178" />
+        <source>Plain resize</source>
+        <translation type="unfinished">Normal büyütme</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/upscale_tool.py" line="179" />
+        <source>AI upscale</source>
+        <translation type="unfinished">AI ile büyütme</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/upscale_tool.py" line="180" />
+        <source>Preview selected image</source>
+        <translation type="unfinished">Seçili görseli önizle</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/upscale_tool.py" line="183" />
+        <source>Preview</source>
+        <translation type="unfinished">Önizleme</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/upscale_tool.py" line="187" />
+        <source>Upscale</source>
+        <translation type="unfinished">Büyüt</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/upscale_tool.py" line="220" />
+        <source>%1: %2 × %3 px → %4 × %5 px</source>
+        <translation type="unfinished">%1: %2 × %3 px → %4 × %5 px</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/upscale_tool.py" line="225" />
+        <source>Too large for this scale, it will be skipped as an error.</source>
+        <translation type="unfinished">Bu ölçek için fazla büyük, hata olarak atlanacak.</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/upscale_tool.py" line="250" />
+        <source>Working...</source>
+        <translation type="unfinished">Çalışıyor...</translation>
+    </message>
+    <message>
+        <location filename="../../modules/image/upscale_tool.py" line="263" />
+        <source>Preview failed: %1</source>
+        <translation type="unfinished">Önizleme başarısız: %1</translation>
     </message>
 </context>
 <context>

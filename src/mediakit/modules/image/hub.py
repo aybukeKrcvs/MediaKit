@@ -54,6 +54,12 @@ def _background():
     return BackgroundTool()
 
 
+def _upscale():
+    from mediakit.modules.image.upscale_tool import UpscaleTool
+
+    return UpscaleTool()
+
+
 def image_tool_specs() -> list[ToolSpec]:
     return [
         ToolSpec(
@@ -124,6 +130,7 @@ def image_tool_specs() -> list[ToolSpec]:
             lambda: QCoreApplication.translate(
                 "ImageTools", "Enlarge images with AI super-resolution."
             ),
+            _upscale,
         ),
     ]
 

@@ -34,7 +34,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from mediakit.core.batch import BatchReport, WorkFn
+from mediakit.core.batch import BatchReport, CancelToken, WorkFn
 from mediakit.core.paths import ConflictPolicy, collect_files
 from mediakit.ui.worker import BatchJob
 
@@ -57,12 +57,20 @@ class BatchToolScreen(QWidget):
 
     # Emitted with the clicked/current file (single-file tools use it).
     current_file_changed = Signal(object)
+    # (done, total) inside the current file, for tools whose single item
+    # takes long (upscale tiles). Safe to emit from the worker thread:
+    # the receiver lives in the GUI thread, so Qt queues the call.
+    item_progress = Signal(int, int)
+
+    PROGRESS_STEPS = 100  # progress bar units per file
 
     def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__(parent)
         self._files: list[Path] = []
         self._out_dir: Path | None = None
         self._job: BatchJob | None = None
+        self._cancel_token = CancelToken()
+        self._files_done = 0
         self._single = False
         self._icon_provider = QFileIconProvider()
         # build_options() runs in the middle of _build(), before the run
@@ -160,6 +168,10 @@ class BatchToolScreen(QWidget):
             if item.checkState() == Qt.CheckState.Checked:
                 paths.append(item.data(_PATH_ROLE))
         return paths
+
+    def cancel_token(self) -> CancelToken:
+        """Token of the batch being started; valid inside make_work."""
+        return self._cancel_token
 
     def is_running(self) -> bool:
         return self._job is not None
@@ -259,6 +271,7 @@ class BatchToolScreen(QWidget):
         self.out_dir_btn.clicked.connect(self._pick_out_dir)
         self.run_btn.clicked.connect(self._start)
         self.cancel_btn.clicked.connect(self._cancel)
+        self.item_progress.connect(self._on_item_progress)
         self.file_list.itemChanged.connect(lambda _item: self.refresh_state())
         self.file_list.currentItemChanged.connect(lambda *_: self._on_current_changed())
 
@@ -431,13 +444,15 @@ class BatchToolScreen(QWidget):
         if not items or self._job is not None or not self.can_run():
             return
 
+        self._cancel_token = CancelToken()
+        self._files_done = 0
         work = self.make_work(self._out_dir, self.conflict_combo.currentData())
-        self._job = BatchJob(items, work, parent=self)
+        self._job = BatchJob(items, work, parent=self, cancel=self._cancel_token)
         self._job.progress.connect(self._on_progress)
         self._job.finished.connect(self._on_finished)
         self._job.failed.connect(self._on_failed)
 
-        self.progress.setRange(0, len(items))
+        self.progress.setRange(0, len(items) * self.PROGRESS_STEPS)
         self.progress.setValue(0)
         self.progress.setVisible(True)
         self.cancel_btn.setVisible(True)
@@ -452,10 +467,17 @@ class BatchToolScreen(QWidget):
             self.status.setText(QCoreApplication.translate("BatchTool", "Cancelling..."))
 
     def _on_progress(self, done: int, _total: int, name: str) -> None:
-        self.progress.setValue(done)
+        self._files_done = done
+        self.progress.setValue(done * self.PROGRESS_STEPS)
         self.status.setText(
             QCoreApplication.translate("BatchTool", "Processing: %1").replace("%1", name)
         )
+
+    def _on_item_progress(self, done: int, total: int) -> None:
+        if self._job is None or not total:
+            return
+        within = round(self.PROGRESS_STEPS * done / total)
+        self.progress.setValue(self._files_done * self.PROGRESS_STEPS + within)
 
     def _teardown_job(self) -> None:
         self._job = None

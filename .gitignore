@@ -11,3 +11,7 @@ dist/
 
 # Inno Setup
 Output/
+# large binaries: models live in GitHub Releases, build output is generated
+dist.zip
+*.onnx
+foto.jpg

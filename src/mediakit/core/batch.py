@@ -27,6 +27,11 @@ class CancelToken:
         return self._event.is_set()
 
 
+class Cancelled(Exception):
+    """Raised by a work function that noticed the CancelToken mid-item
+    (long single items such as upscaling poll it between tiles)."""
+
+
 @dataclass(frozen=True)
 class ItemResult:
     source: Path
@@ -92,6 +97,10 @@ def run_batch(
         try:
             output = work(item)
             report.results.append(ItemResult(source=item, output=output))
+        except Cancelled:
+            # Stopped mid-item: not a failure, and no partial output.
+            report.cancelled = True
+            break
         except Exception as exc:  # noqa: BLE001 - deliberate: isolate per item
             report.results.append(ItemResult(source=item, error=f"{type(exc).__name__}: {exc}"))
 

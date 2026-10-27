@@ -72,8 +72,13 @@ def size_of(path):
         return im.size
 
 
-def test_coming_soon_tool_does_not_open(hub):
-    hub.open_tool("upscale")
+def test_coming_soon_tool_does_not_open(app):
+    # Every image tool is built now, so use a hub with an unbuilt card.
+    from mediakit.ui.tool_hub import ToolHub, ToolSpec
+
+    spec = ToolSpec("later", "upscale", lambda: "Later", lambda: "Not built yet.")
+    hub = ToolHub(lambda: "T", lambda: "S", [spec])
+    hub.open_tool("later")
     assert hub.current_tool() is None
 
 
@@ -311,3 +316,76 @@ def test_background_tool_preview_and_batch(app, images, tmp_path):
     out = tmp_path / "out" / "wide_nobg.png"
     with Image.open(out) as image:
         assert image.mode == "RGBA" and image.size == (1600, 900)
+
+
+# ------------------------------------------------------------------ 1e
+
+
+@pytest.fixture
+def fake_upscaler(tmp_path, monkeypatch):
+    """Installed-looking model + nearest-neighbour stand-in for ONNX."""
+    import dataclasses
+    import hashlib
+
+    import numpy as np
+
+    from mediakit.core.models import ModelSpec, ModelStore
+    from mediakit.modules.image import upscale, upscale_tool
+
+    blob = b"m" * 1000
+    spec = ModelSpec("fake", "fake.onnx", "", hashlib.sha256(blob).hexdigest(), len(blob), "MIT")
+    for key in ("fast", "quality"):
+        monkeypatch.setitem(
+            upscale.MODELS, key, dataclasses.replace(upscale.MODELS[key], spec=spec, tile=32)
+        )
+    store = ModelStore(tmp_path / "models")
+    store.root.mkdir()
+    store.path(spec).write_bytes(blob)
+
+    def runner(_path):
+        return lambda t: t.repeat(4, axis=2).repeat(4, axis=3).astype(np.float32)
+
+    monkeypatch.setattr(upscale, "TileRunner", runner)
+    monkeypatch.setattr(upscale_tool, "TileRunner", runner)
+    return store
+
+
+def test_upscale_tool_without_model_cannot_run(app, images, tmp_path):
+    from mediakit.core.models import ModelStore
+    from mediakit.modules.image.upscale_tool import UpscaleTool
+
+    tool = UpscaleTool(store=ModelStore(tmp_path / "empty"))
+    tool.show()
+    tool.add_paths([images])
+    app.processEvents()
+    assert not tool.run_btn.isEnabled()
+    assert tool.model_panel.download_btn.isVisibleTo(tool)
+    assert not tool.preview_btn.isEnabled()
+
+
+def test_upscale_tool_preview_size_and_batch(app, images, tmp_path, fake_upscaler):
+    from mediakit.modules.image.upscale_tool import UpscaleTool
+
+    tool = UpscaleTool(store=fake_upscaler)
+    tool.show()
+    tool.add_paths([images / "wide.jpg"])
+    app.processEvents()
+    assert "3200" in tool.size_label.text()  # 1600 px wide, 2x default
+    tool.scale_tiles[1].click()
+    assert "6400" in tool.size_label.text()
+
+    tool.preview_btn.click()
+    _wait(app, lambda: tool._preview_job is None)
+    assert not tool.after.pixmap().isNull()
+    assert tool.after.pixmap().width() == tool.before.pixmap().width()
+
+    tool.scale_tiles[0].click()
+    tool._out_dir = tmp_path / "out"
+    run(app, tool)
+    with Image.open(tmp_path / "out" / "wide_x2.jpg") as image:
+        assert image.size == (3200, 1800)
+
+
+def test_upscale_card_opens_from_hub(hub):
+    hub.open_tool("upscale")
+    assert type(hub.current_tool()).__name__ == "UpscaleTool"

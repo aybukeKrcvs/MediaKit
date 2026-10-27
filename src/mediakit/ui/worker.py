@@ -57,9 +57,17 @@ class BatchJob(QObject):
     finished = Signal(object)
     failed = Signal(str)
 
-    def __init__(self, items: list[Path], work: WorkFn, parent: QObject | None = None) -> None:
+    def __init__(
+        self,
+        items: list[Path],
+        work: WorkFn,
+        parent: QObject | None = None,
+        cancel: CancelToken | None = None,
+    ) -> None:
         super().__init__(parent)
-        self.cancel_token = CancelToken()
+        # A caller may pass its own token so the work function can poll
+        # it too (cancel in the middle of one long item).
+        self.cancel_token = cancel or CancelToken()
         self._thread = QThread()
         self._worker = BatchWorker(items, work, self.cancel_token)
         self._worker.moveToThread(self._thread)

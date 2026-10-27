@@ -236,6 +236,17 @@ TR: dict[str, str] = {
     "Background colour": "Arka plan rengi",
     "Working...": "Çalışıyor...",
     "Preview failed: %1": "Önizleme başarısız: %1",
+    # ---- 1e: upscale ----
+    "Small model, seconds per image. Good for most photos.": "Küçük model, görsel başına saniyeler. Çoğu fotoğraf için yeterli.",
+    "Sharper detail. Much slower, best on a GPU.": "Daha keskin detay. Çok daha yavaş, en iyisi GPU'da.",
+    "Enlarge": "Büyütme",
+    "Twice the width and height": "Genişlik ve yüksekliğin iki katı",
+    "Four times the width and height": "Genişlik ve yüksekliğin dört katı",
+    "No GPU found: large images can take minutes each on the CPU.": "GPU bulunamadı: büyük görseller CPU'da tanesi dakikalar sürebilir.",
+    "Plain resize": "Normal büyütme",
+    "AI upscale": "AI ile büyütme",
+    "%1: %2 \u00d7 %3 px \u2192 %4 \u00d7 %5 px": "%1: %2 \u00d7 %3 px \u2192 %4 \u00d7 %5 px",
+    "Too large for this scale, it will be skipped as an error.": "Bu ölçek için fazla büyük, hata olarak atlanacak.",
 }
 
 
