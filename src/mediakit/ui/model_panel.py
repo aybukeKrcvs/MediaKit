@@ -96,6 +96,11 @@ class ModelPanel(QWidget):
         self.device = QLabel()
         self.device.setObjectName("Muted")
         layout.addWidget(self.device)
+        # Who made the model, always visible next to it.
+        self.credit = QLabel()
+        self.credit.setObjectName("Muted")
+        self.credit.setWordWrap(True)
+        layout.addWidget(self.credit)
 
         self.group.idToggled.connect(lambda _i, on: on and self.refresh())
         self.download_btn.clicked.connect(self.start_download)
@@ -147,6 +152,12 @@ class ModelPanel(QWidget):
         self.refresh()
 
     def refresh(self) -> None:
+        credit = self.current_spec().credit
+        self.credit.setText(credit.short())
+        tip = QCoreApplication.translate(
+            "ModelPanel", "Full license: sidebar \u2192 About & licenses"
+        )
+        self.credit.setToolTip(f"{credit.note}\n{credit.url}\n\n{tip}".strip())
         downloading = self.is_downloading()
         ready = self.is_ready()
         self.bar.setVisible(downloading)

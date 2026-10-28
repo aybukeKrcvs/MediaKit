@@ -17,6 +17,7 @@ import numpy as np
 from PIL import Image
 
 from mediakit.core.batch import WorkFn
+from mediakit.core.credits import Credit
 from mediakit.core.models import ModelSpec, ModelStore
 from mediakit.core.onnx import load_model
 from mediakit.core.paths import ConflictPolicy, resolve_output_path
@@ -49,7 +50,15 @@ MODELS: dict[str, SegmentationModel] = {
             _RELEASE + "silueta.onnx",
             "75da6c8d2f8096ec743d071951be73b4a8bc7b3e51d9a6625d63644f90ffeedb",
             44173029,
-            "Apache-2.0",
+            Credit(
+                "silueta (U\u00b2-Net)",
+                "Xuebin Qin et al., Daniel Gatis",
+                "Apache-2.0",
+                "https://github.com/xuebinqin/U-2-Net",
+                ("models/u2net/LICENSE", "models/rembg/LICENSE"),
+                "A smaller U\u00b2-Net distributed by rembg. Downloaded unchanged "
+                "from the rembg GitHub release.",
+            ),
         ),
         320,
         _IMAGENET_MEAN,
@@ -63,7 +72,15 @@ MODELS: dict[str, SegmentationModel] = {
             _RELEASE + "isnet-general-use.onnx",
             "60920e99c45464f2ba57bee2ad08c919a52bbf852739e96947fbb4358c0d964a",
             178648008,
-            "Apache-2.0",
+            Credit(
+                "IS-Net (DIS)",
+                "Xuebin Qin et al.",
+                "Apache-2.0",
+                "https://github.com/xuebinqin/DIS",
+                ("models/dis/LICENSE", "models/rembg/LICENSE"),
+                "General-use weights distributed by rembg. Downloaded unchanged "
+                "from the rembg GitHub release.",
+            ),
         ),
         1024,
         _IMAGENET_MEAN,

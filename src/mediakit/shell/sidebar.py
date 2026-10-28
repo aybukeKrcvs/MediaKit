@@ -6,6 +6,7 @@ class Sidebar(QWidget):
     selection_changed = Signal(int)
     language_selected = Signal(str)  # "tr" / "en"
     theme_toggled = Signal()
+    about_requested = Signal()
 
     def __init__(self) -> None:
         super().__init__()
@@ -46,6 +47,10 @@ class Sidebar(QWidget):
         self.theme_button.setObjectName("ThemeButton")
         layout.addWidget(self.theme_button)
         self.theme_button.clicked.connect(self._toggle_theme)
+        self.about_button = QPushButton()
+        self.about_button.setObjectName("LangButton")  # same quiet footer look
+        layout.addWidget(self.about_button)
+        self.about_button.clicked.connect(self.about_requested)
         self.retranslate()
 
     def _make_nav_button(self, index: int) -> QPushButton:
@@ -78,6 +83,7 @@ class Sidebar(QWidget):
         self._nav.button(1).setText(self.tr("AUDIO"))
         self._nav.button(2).setText(self.tr("PDF"))
         self._footer_label.setText(self.tr("SETTINGS"))
+        self.about_button.setText(self.tr("About & licenses"))
 
     def select(self, index: int) -> None:
         button = self._nav.button(index)

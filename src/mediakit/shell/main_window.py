@@ -4,6 +4,7 @@ from PySide6.QtWidgets import QHBoxLayout, QMainWindow, QStackedWidget, QWidget
 from mediakit.modules.audio.hub import build_audio_hub
 from mediakit.modules.image.hub import build_image_hub
 from mediakit.modules.pdf.hub import build_pdf_hub
+from mediakit.shell.about import AboutDialog
 from mediakit.shell.i18n import LanguageManager
 from mediakit.shell.sidebar import Sidebar
 from mediakit.shell.theme import ThemeManager
@@ -39,6 +40,7 @@ class MainWindow(QMainWindow):
         self.sidebar.selection_changed.connect(self._on_navigate)
         self.sidebar.language_selected.connect(self._languages.set_language)
         self.sidebar.theme_toggled.connect(self._on_theme_toggled)
+        self.sidebar.about_requested.connect(self.show_about)
         self.sidebar.set_active_language(self._languages.language)
         self.sidebar.set_theme_label(self._themes.theme)
 
@@ -56,6 +58,9 @@ class MainWindow(QMainWindow):
             hub.retranslate()
         self.sidebar.retranslate()
         self.sidebar.set_theme_label(self._themes.theme)
+
+    def show_about(self, focus: str | None = None) -> None:
+        AboutDialog(self, focus).exec()
 
     def _on_theme_toggled(self) -> None:
         new_theme = "light" if self._themes.theme == "dark" else "dark"

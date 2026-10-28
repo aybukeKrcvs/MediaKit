@@ -1,0 +1,148 @@
+[
+  {
+    "name": "flatbuffers",
+    "version": "25.12.19",
+    "license": "Apache 2.0",
+    "url": "https://google.github.io/flatbuffers/",
+    "files": [
+      "libraries/flatbuffers/Apache-2.0.txt"
+    ]
+  },
+  {
+    "name": "mpmath",
+    "version": "1.3.0",
+    "license": "BSD",
+    "url": "http://mpmath.org/",
+    "files": [
+      "libraries/mpmath/LICENSE"
+    ]
+  },
+  {
+    "name": "numpy",
+    "version": "2.5.4",
+    "license": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+    "url": "https://numpy.org",
+    "files": [
+      "libraries/numpy/LICENSE.txt",
+      "libraries/numpy/numpy___core__include__numpy__libdivide__LICENSE.txt",
+      "libraries/numpy/numpy___core__src__common__pythoncapi-compat__COPYING",
+      "libraries/numpy/numpy___core__src__highway__LICENSE",
+      "libraries/numpy/numpy___core__src__multiarray__dragon4_LICENSE.txt",
+      "libraries/numpy/numpy___core__src__npysort__x86-simd-sort__LICENSE.md",
+      "libraries/numpy/numpy___core__src__umath__svml__LICENSE",
+      "libraries/numpy/numpy__fft__pocketfft__LICENSE.md",
+      "libraries/numpy/numpy__linalg__lapack_lite__LICENSE.txt",
+      "libraries/numpy/numpy__ma__LICENSE",
+      "libraries/numpy/numpy__random__LICENSE.md",
+      "libraries/numpy/numpy__random__src__distributions__LICENSE.md",
+      "libraries/numpy/numpy__random__src__mt19937__LICENSE.md",
+      "libraries/numpy/numpy__random__src__pcg64__LICENSE.md",
+      "libraries/numpy/numpy__random__src__philox__LICENSE.md",
+      "libraries/numpy/numpy__random__src__sfc64__LICENSE.md",
+      "libraries/numpy/numpy__random__src__splitmix64__LICENSE.md"
+    ]
+  },
+  {
+    "name": "onnxruntime-directml",
+    "version": "1.24.4",
+    "license": "MIT License",
+    "url": "https://onnxruntime.ai",
+    "files": [
+      "libraries/onnxruntime-directml/onnxruntime__LICENSE",
+      "libraries/onnxruntime-directml/onnxruntime__ThirdPartyNotices.txt"
+    ]
+  },
+  {
+    "name": "packaging",
+    "version": "26.2",
+    "license": "Apache-2.0 OR BSD-2-Clause",
+    "url": "https://github.com/pypa/packaging",
+    "files": [
+      "libraries/packaging/LICENSE",
+      "libraries/packaging/LICENSE.APACHE",
+      "libraries/packaging/LICENSE.BSD"
+    ]
+  },
+  {
+    "name": "pillow",
+    "version": "13.0.0",
+    "license": "MIT-CMU",
+    "url": "https://python-pillow.org",
+    "files": [
+      "libraries/pillow/LICENSE"
+    ]
+  },
+  {
+    "name": "protobuf",
+    "version": "7.36.2",
+    "license": "3-Clause BSD License",
+    "url": "https://developers.google.com/protocol-buffers/",
+    "files": [
+      "libraries/protobuf/LICENSE"
+    ]
+  },
+  {
+    "name": "PySide6",
+    "version": "6.11.1",
+    "license": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+    "url": "https://pyside.org",
+    "files": [
+      "libraries/pyside6/LicenseRef-Qt-Commercial.txt"
+    ]
+  },
+  {
+    "name": "PySide6_Addons",
+    "version": "6.11.1",
+    "license": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+    "url": "https://pyside.org",
+    "files": [
+      "libraries/pyside6-addons/LicenseRef-Qt-Commercial.txt"
+    ]
+  },
+  {
+    "name": "PySide6_Essentials",
+    "version": "6.11.1",
+    "license": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+    "url": "https://pyside.org",
+    "files": [
+      "libraries/pyside6-essentials/LicenseRef-Qt-Commercial.txt"
+    ]
+  },
+  {
+    "name": "shiboken6",
+    "version": "6.11.1",
+    "license": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+    "url": "https://pyside.org",
+    "files": [
+      "libraries/shiboken6/LicenseRef-Qt-Commercial.txt"
+    ]
+  },
+  {
+    "name": "sympy",
+    "version": "1.14.0",
+    "license": "BSD",
+    "url": "https://sympy.org",
+    "files": [
+      "libraries/sympy/AUTHORS",
+      "libraries/sympy/LICENSE"
+    ]
+  },
+  {
+    "name": "Python",
+    "version": "3.12.13",
+    "license": "PSF-2.0",
+    "url": "https://www.python.org",
+    "files": [
+      "libraries/python/LICENSE.txt"
+    ]
+  },
+  {
+    "name": "PyInstaller bootloader",
+    "version": "6.21.0",
+    "license": "GPL-2.0-or-later WITH Bootloader-exception",
+    "url": "https://pyinstaller.org",
+    "files": [
+      "libraries/pyinstaller/COPYING.txt"
+    ]
+  }
+]

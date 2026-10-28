@@ -1,6 +1,39 @@
 <?xml version='1.0' encoding='utf-8'?>
 <TS version="2.1" language="tr_TR">
 <context>
+    <name>AboutDialog</name>
+    <message>
+        <location filename="../../shell/about.py" line="102" />
+        <source>About MediaKit</source>
+        <translation type="unfinished">MediaKit hakkında</translation>
+    </message>
+    <message>
+        <location filename="../../shell/about.py" line="112" />
+        <source>An offline media toolkit. It is built on the open-source work below; thank you to everyone who made it.</source>
+        <translation type="unfinished">Çevrimdışı bir medya araç kutusu. Aşağıdaki açık kaynak çalışmaların üzerine kuruldu; emeği geçen herkese teşekkürler.</translation>
+    </message>
+    <message>
+        <location filename="../../shell/about.py" line="130" />
+        <source>License texts are legal documents and are shown in their original language.</source>
+        <translation type="unfinished">Lisans metinleri hukuki belgelerdir ve özgün dillerinde gösterilir.</translation>
+    </message>
+    <message>
+        <location filename="../../shell/about.py" line="137" />
+        <source>Close</source>
+        <translation type="unfinished">Kapat</translation>
+    </message>
+    <message>
+        <location filename="../../shell/about.py" line="141" />
+        <source>MODELS</source>
+        <translation type="unfinished">MODELLER</translation>
+    </message>
+    <message>
+        <location filename="../../shell/about.py" line="142" />
+        <source>LIBRARIES</source>
+        <translation type="unfinished">KÜTÜPHANELER</translation>
+    </message>
+</context>
+<context>
     <name>AudioTools</name>
     <message>
         <location filename="../../modules/audio/hub.py" line="15" />
@@ -737,52 +770,57 @@
 <context>
     <name>ModelPanel</name>
     <message>
-        <location filename="../../ui/model_panel.py" line="138" />
+        <location filename="../../ui/model_panel.py" line="143" />
         <source>Model</source>
         <translation type="unfinished">Model</translation>
     </message>
     <message>
-        <location filename="../../ui/model_panel.py" line="139" />
+        <location filename="../../ui/model_panel.py" line="144" />
         <source>Cancel</source>
         <translation type="unfinished">İptal</translation>
     </message>
     <message>
-        <location filename="../../ui/model_panel.py" line="141" />
+        <location filename="../../ui/model_panel.py" line="146" />
         <source>Runs on: %1</source>
         <translation type="unfinished">Çalıştığı yer: %1</translation>
     </message>
     <message>
-        <location filename="../../ui/model_panel.py" line="156" />
+        <location filename="../../ui/model_panel.py" line="157" />
+        <source>Full license: sidebar → About &amp; licenses</source>
+        <translation type="unfinished">Tam lisans: kenar çubuğu → Hakkında ve lisanslar</translation>
+    </message>
+    <message>
+        <location filename="../../ui/model_panel.py" line="167" />
         <source>Download (%1 MB)</source>
         <translation type="unfinished">İndir (%1 MB)</translation>
     </message>
     <message>
-        <location filename="../../ui/model_panel.py" line="161" />
+        <location filename="../../ui/model_panel.py" line="172" />
         <source>Downloading...</source>
         <translation type="unfinished">İndiriliyor...</translation>
     </message>
     <message>
-        <location filename="../../ui/model_panel.py" line="164" />
+        <location filename="../../ui/model_panel.py" line="175" />
         <source>✓ Model installed, works offline</source>
         <translation type="unfinished">✓ Model kurulu, çevrimdışı çalışır</translation>
     </message>
     <message>
-        <location filename="../../ui/model_panel.py" line="168" />
+        <location filename="../../ui/model_panel.py" line="179" />
         <source>Needs a one-time download.</source>
         <translation type="unfinished">Bir kerelik indirme gerekiyor.</translation>
     </message>
     <message>
-        <location filename="../../ui/model_panel.py" line="207" />
+        <location filename="../../ui/model_panel.py" line="218" />
         <source>Download cancelled.</source>
         <translation type="unfinished">İndirme iptal edildi.</translation>
     </message>
     <message>
-        <location filename="../../ui/model_panel.py" line="210" />
+        <location filename="../../ui/model_panel.py" line="221" />
         <source>Download failed: %1</source>
         <translation type="unfinished">İndirme başarısız: %1</translation>
     </message>
     <message>
-        <location filename="../../ui/model_panel.py" line="213" />
+        <location filename="../../ui/model_panel.py" line="224" />
         <source>Model ready.</source>
         <translation type="unfinished">Model hazır.</translation>
     </message>
@@ -964,34 +1002,39 @@
 <context>
     <name>Sidebar</name>
     <message>
-        <location filename="../../shell/sidebar.py" line="72" />
+        <location filename="../../shell/sidebar.py" line="77" />
         <source>☾  DARK</source>
         <translation>KOYU</translation>
     </message>
     <message>
-        <location filename="../../shell/sidebar.py" line="74" />
+        <location filename="../../shell/sidebar.py" line="79" />
         <source>☀  LIGHT</source>
         <translation>AÇIK</translation>
     </message>
     <message>
-        <location filename="../../shell/sidebar.py" line="77" />
+        <location filename="../../shell/sidebar.py" line="82" />
         <source>IMAGE</source>
         <translation>GÖRÜNTÜ</translation>
     </message>
     <message>
-        <location filename="../../shell/sidebar.py" line="78" />
+        <location filename="../../shell/sidebar.py" line="83" />
         <source>AUDIO</source>
         <translation>SES</translation>
     </message>
     <message>
-        <location filename="../../shell/sidebar.py" line="79" />
+        <location filename="../../shell/sidebar.py" line="84" />
         <source>PDF</source>
         <translation>PDF</translation>
     </message>
     <message>
-        <location filename="../../shell/sidebar.py" line="80" />
+        <location filename="../../shell/sidebar.py" line="85" />
         <source>SETTINGS</source>
         <translation>AYARLAR</translation>
+    </message>
+    <message>
+        <location filename="../../shell/sidebar.py" line="86" />
+        <source>About &amp; licenses</source>
+        <translation type="unfinished">Hakkında ve lisanslar</translation>
     </message>
 </context>
 <context>

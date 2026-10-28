@@ -247,6 +247,15 @@ TR: dict[str, str] = {
     "AI upscale": "AI ile büyütme",
     "%1: %2 \u00d7 %3 px \u2192 %4 \u00d7 %5 px": "%1: %2 \u00d7 %3 px \u2192 %4 \u00d7 %5 px",
     "Too large for this scale, it will be skipped as an error.": "Bu ölçek için fazla büyük, hata olarak atlanacak.",
+    # ---- licenses / about ----
+    "About MediaKit": "MediaKit hakkında",
+    "An offline media toolkit. It is built on the open-source work below; thank you to everyone who made it.": "Çevrimdışı bir medya araç kutusu. Aşağıdaki açık kaynak çalışmaların üzerine kuruldu; emeği geçen herkese teşekkürler.",
+    "License texts are legal documents and are shown in their original language.": "Lisans metinleri hukuki belgelerdir ve özgün dillerinde gösterilir.",
+    "Close": "Kapat",
+    "MODELS": "MODELLER",
+    "LIBRARIES": "KÜTÜPHANELER",
+    "About & licenses": "Hakkında ve lisanslar",
+    "Full license: sidebar \u2192 About & licenses": "Tam lisans: kenar çubuğu \u2192 Hakkında ve lisanslar",
 }
 
 

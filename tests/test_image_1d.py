@@ -4,6 +4,7 @@ Inference tests need the real models. Point MEDIAKIT_MODEL_DIR at a
 folder that has them; otherwise those tests are skipped, not failed.
 """
 
+import dataclasses
 import hashlib
 import os
 from pathlib import Path
@@ -12,6 +13,7 @@ import pytest
 from PIL import Image, ImageDraw
 
 from mediakit.core.batch import CancelToken, run_batch
+from mediakit.core.credits import Credit
 from mediakit.core.models import DownloadCancelled, ModelDownloadError, ModelSpec, ModelStore
 from mediakit.modules.image.background import (
     MODELS,
@@ -20,6 +22,8 @@ from mediakit.modules.image.background import (
     make_background_job,
     output_extension,
 )
+
+TEST_CREDIT = Credit("Fake", "Tests", "MIT", "https://example.invalid", ())
 
 # ----------------------------------------------------------- model store
 
@@ -30,7 +34,7 @@ def _fake_model(tmp_path: Path, size: int = 3_000_000) -> tuple[Path, ModelSpec]
     source.parent.mkdir()
     source.write_bytes(blob)
     spec = ModelSpec(
-        "fake", "model.onnx", source.as_uri(), hashlib.sha256(blob).hexdigest(), size, "MIT"
+        "fake", "model.onnx", source.as_uri(), hashlib.sha256(blob).hexdigest(), size, TEST_CREDIT
     )
     return source, spec
 
@@ -47,7 +51,7 @@ def test_download_verifies_and_installs(tmp_path):
 
 def test_download_rejects_bad_checksum(tmp_path):
     _, spec = _fake_model(tmp_path)
-    bad = ModelSpec(spec.key, spec.filename, spec.url, "0" * 64, spec.size, spec.license)
+    bad = dataclasses.replace(spec, sha256="0" * 64)
     store = ModelStore(tmp_path / "cache")
     with pytest.raises(ModelDownloadError, match="Checksum"):
         store.download(bad)
@@ -65,7 +69,7 @@ def test_download_cancel_leaves_nothing(tmp_path):
 
 
 def test_download_network_error_is_wrapped(tmp_path):
-    spec = ModelSpec("x", "x.onnx", (tmp_path / "missing.onnx").as_uri(), "0" * 64, 1, "MIT")
+    spec = ModelSpec("x", "x.onnx", (tmp_path / "missing.onnx").as_uri(), "0" * 64, 1, TEST_CREDIT)
     with pytest.raises(ModelDownloadError):
         ModelStore(tmp_path / "cache").download(spec)
 

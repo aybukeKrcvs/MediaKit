@@ -26,12 +26,18 @@ import numpy as np
 from PIL import Image
 
 from mediakit.core.batch import Cancelled, CancelToken, WorkFn
+from mediakit.core.credits import Credit
 from mediakit.core.models import ModelSpec, ModelStore
 from mediakit.core.onnx import load_model
 from mediakit.core.paths import ConflictPolicy, resolve_output_path
 from mediakit.modules.image.ops import auto_orient
 
 _RELEASE = "https://github.com/aybukeKrcvs/MediaKit/releases/download/models-v1/"
+_ESRGAN_AUTHORS = "Xintao Wang et al."
+_ESRGAN_NOTE = (
+    "Official BSD-3 weights, rebuilt as ONNX by MediaKit (tools/export_upscalers.py); "
+    "the network and its weights are unchanged."
+)
 NATIVE_SCALE = 4
 # 80 MP output = 240 MB as raw RGB. Beyond that saving alone gets slow
 # and memory hungry; the user is asked to pick 2x or a smaller source.
@@ -58,7 +64,14 @@ MODELS: dict[str, UpscaleModel] = {
             _RELEASE + "realesr-general-x4v3.onnx",
             "beeb6c1d0bc76b5b704a184dbef4a519665e2454e244f8978a8c2bc00414979a",
             4861752,
-            "BSD-3-Clause",
+            Credit(
+                "Real-ESRGAN general-x4v3",
+                _ESRGAN_AUTHORS,
+                "BSD-3-Clause",
+                "https://github.com/xinntao/Real-ESRGAN",
+                ("models/realesrgan/LICENSE",),
+                _ESRGAN_NOTE,
+            ),
         ),
         tile=512,
         pad=16,
@@ -70,7 +83,14 @@ MODELS: dict[str, UpscaleModel] = {
             _RELEASE + "realesrgan-x4plus.onnx",
             "8695e1b10e548274dd96ebe4697a28ad8ea2e20261c63ddf1ea05c7337dcd7ec",
             66920546,
-            "BSD-3-Clause",
+            Credit(
+                "Real-ESRGAN x4plus",
+                _ESRGAN_AUTHORS,
+                "BSD-3-Clause",
+                "https://github.com/xinntao/Real-ESRGAN",
+                ("models/realesrgan/LICENSE",),
+                _ESRGAN_NOTE,
+            ),
         ),
         # Measured on a GTX 1650 (4 GB, DirectML), 800x450 input at 4x:
         #   tile 128 -> 14.8 s   192 -> 13.8 s   256 -> 11.5 s   320 -> 12.4 s

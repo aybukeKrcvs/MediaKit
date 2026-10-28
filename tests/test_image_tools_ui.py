@@ -14,9 +14,11 @@ from PySide6.QtCore import QEvent, QEventLoop, QPointF, Qt, QTimer
 from PySide6.QtGui import QMouseEvent
 from PySide6.QtWidgets import QApplication
 
+from mediakit.core.credits import Credit
 from mediakit.modules.image.hub import build_image_hub
 
 L, N = Qt.MouseButton.LeftButton, Qt.MouseButton.NoButton
+TEST_CREDIT = Credit("Fake", "Tests", "MIT", "https://example.invalid", ())
 
 
 @pytest.fixture(scope="module")
@@ -267,7 +269,12 @@ def test_background_tool_download_flow(app, images, tmp_path, monkeypatch):
     remote = tmp_path / "remote.onnx"
     remote.write_bytes(blob)
     fake = ModelSpec(
-        "fake", "fake.onnx", remote.as_uri(), hashlib.sha256(blob).hexdigest(), len(blob), "MIT"
+        "fake",
+        "fake.onnx",
+        remote.as_uri(),
+        hashlib.sha256(blob).hexdigest(),
+        len(blob),
+        TEST_CREDIT,
     )
     monkeypatch.setitem(
         background.MODELS,
@@ -333,7 +340,9 @@ def fake_upscaler(tmp_path, monkeypatch):
     from mediakit.modules.image import upscale, upscale_tool
 
     blob = b"m" * 1000
-    spec = ModelSpec("fake", "fake.onnx", "", hashlib.sha256(blob).hexdigest(), len(blob), "MIT")
+    spec = ModelSpec(
+        "fake", "fake.onnx", "", hashlib.sha256(blob).hexdigest(), len(blob), TEST_CREDIT
+    )
     for key in ("fast", "quality"):
         monkeypatch.setitem(
             upscale.MODELS, key, dataclasses.replace(upscale.MODELS[key], spec=spec, tile=32)

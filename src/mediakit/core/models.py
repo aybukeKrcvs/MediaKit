@@ -19,6 +19,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from mediakit.core.batch import CancelToken
+from mediakit.core.credits import Credit
 
 # on_progress(bytes_done, bytes_total)
 DownloadProgress = Callable[[int, int], None]
@@ -42,7 +43,11 @@ class ModelSpec:
     url: str
     sha256: str
     size: int  # bytes, for the UI before the download starts
-    license: str
+    credit: Credit  # required: no model without its authors and license
+
+    @property
+    def license(self) -> str:
+        return self.credit.license
 
     @property
     def size_mb(self) -> int:
