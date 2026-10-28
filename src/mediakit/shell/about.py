@@ -77,7 +77,7 @@ def library_entries() -> list[Entry]:
             item["license"],
             item.get("url") or "",
             item["version"],
-            "",
+            item.get("note", ""),
             tuple(item["files"]),
         )
         for item in json.loads(raw)
@@ -109,8 +109,8 @@ class AboutDialog(QDialog):
         layout.addWidget(title)
         intro = QLabel(
             self.tr(
-                "An offline media toolkit. It is built on the open-source work below; "
-                "thank you to everyone who made it."
+                "An offline media toolkit, free software under the GNU GPL v3 or later. "
+                "It is built on the open-source work below; thank you to everyone who made it."
             )
         )
         intro.setObjectName("Muted")

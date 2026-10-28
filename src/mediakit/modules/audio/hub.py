@@ -7,13 +7,20 @@ from PySide6.QtCore import QCoreApplication
 from mediakit.ui.tool_hub import ToolHub, ToolSpec
 
 
+def _convert():
+    from mediakit.modules.audio.tools import AudioConvertTool
+
+    return AudioConvertTool()
+
+
 def audio_tool_specs() -> list[ToolSpec]:
     return [
         ToolSpec(
             "convert",
             "audio_convert",
             lambda: QCoreApplication.translate("AudioTools", "Convert audio"),
-            lambda: QCoreApplication.translate("AudioTools", "MP3, WAV, FLAC, OGG, M4A and more."),
+            lambda: QCoreApplication.translate("AudioTools", "MP3, M4A, Opus, FLAC, WAV."),
+            _convert,
         ),
         ToolSpec(
             "transcribe",

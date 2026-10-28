@@ -1,4 +1,6 @@
 # -*- mode: python ; coding: utf-8 -*-
+from PyInstaller.utils.hooks import collect_submodules
+
 
 
 a = Analysis(
@@ -14,6 +16,9 @@ a = Analysis(
         'onnxruntime',
         'onnxruntime.capi._pybind_state',
         'onnxruntime.capi.onnxruntime_validation',
+        # PyAV is mostly compiled Cython modules that import each other
+        # from C, which PyInstaller's import scanner cannot follow.
+        *collect_submodules('av'),
     ],
     hookspath=[],
     hooksconfig={},

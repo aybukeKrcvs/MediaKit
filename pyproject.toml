@@ -1,13 +1,16 @@
 [project]
 name = "mediakit"
 version = "0.1.0"
-description = "Add your description here"
+description = "Offline desktop toolkit for image, audio and PDF work"
 readme = "README.md"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
 authors = [
     { name = "Aybüke", email = "119972157+aybukeKrcvs@users.noreply.github.com" }
 ]
 requires-python = ">=3.12"
 dependencies = [
+    "av>=19.0.2",
     "numpy>=2.5.4",
     "onnxruntime>=1.31.1 ; sys_platform != 'win32'",
     "onnxruntime-directml>=1.24.4 ; sys_platform == 'win32'",

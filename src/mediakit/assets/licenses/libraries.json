@@ -1,12 +1,26 @@
 [
   {
+    "name": "av",
+    "version": "19.0.2",
+    "license": "BSD-3-Clause",
+    "url": "https://pyav.basswood.io",
+    "files": [
+      "libraries/av/AUTHORS.rst",
+      "libraries/av/GPL-3.0-only.txt",
+      "libraries/av/LGPL-3.0-only.txt",
+      "libraries/av/LICENSE.txt"
+    ],
+    "note": "PyAV (BSD-3-Clause) bundles FFmpeg built with GPL components (x264, x265) and LGPL ones (LAME, Opus, ...); the combined binaries are distributed under the GPL. Source of that FFmpeg build: https://github.com/PyAV-Org/pyav-ffmpeg"
+  },
+  {
     "name": "flatbuffers",
     "version": "25.12.19",
     "license": "Apache 2.0",
     "url": "https://google.github.io/flatbuffers/",
     "files": [
       "libraries/flatbuffers/Apache-2.0.txt"
-    ]
+    ],
+    "note": ""
   },
   {
     "name": "mpmath",
@@ -15,7 +29,8 @@
     "url": "http://mpmath.org/",
     "files": [
       "libraries/mpmath/LICENSE"
-    ]
+    ],
+    "note": ""
   },
   {
     "name": "numpy",
@@ -40,7 +55,8 @@
       "libraries/numpy/numpy__random__src__philox__LICENSE.md",
       "libraries/numpy/numpy__random__src__sfc64__LICENSE.md",
       "libraries/numpy/numpy__random__src__splitmix64__LICENSE.md"
-    ]
+    ],
+    "note": ""
   },
   {
     "name": "onnxruntime-directml",
@@ -50,7 +66,8 @@
     "files": [
       "libraries/onnxruntime-directml/onnxruntime__LICENSE",
       "libraries/onnxruntime-directml/onnxruntime__ThirdPartyNotices.txt"
-    ]
+    ],
+    "note": ""
   },
   {
     "name": "packaging",
@@ -61,7 +78,8 @@
       "libraries/packaging/LICENSE",
       "libraries/packaging/LICENSE.APACHE",
       "libraries/packaging/LICENSE.BSD"
-    ]
+    ],
+    "note": ""
   },
   {
     "name": "pillow",
@@ -70,7 +88,8 @@
     "url": "https://python-pillow.org",
     "files": [
       "libraries/pillow/LICENSE"
-    ]
+    ],
+    "note": ""
   },
   {
     "name": "protobuf",
@@ -79,7 +98,8 @@
     "url": "https://developers.google.com/protocol-buffers/",
     "files": [
       "libraries/protobuf/LICENSE"
-    ]
+    ],
+    "note": ""
   },
   {
     "name": "PySide6",
@@ -88,7 +108,8 @@
     "url": "https://pyside.org",
     "files": [
       "libraries/pyside6/LicenseRef-Qt-Commercial.txt"
-    ]
+    ],
+    "note": ""
   },
   {
     "name": "PySide6_Addons",
@@ -97,7 +118,8 @@
     "url": "https://pyside.org",
     "files": [
       "libraries/pyside6-addons/LicenseRef-Qt-Commercial.txt"
-    ]
+    ],
+    "note": ""
   },
   {
     "name": "PySide6_Essentials",
@@ -106,7 +128,8 @@
     "url": "https://pyside.org",
     "files": [
       "libraries/pyside6-essentials/LicenseRef-Qt-Commercial.txt"
-    ]
+    ],
+    "note": ""
   },
   {
     "name": "shiboken6",
@@ -115,7 +138,8 @@
     "url": "https://pyside.org",
     "files": [
       "libraries/shiboken6/LicenseRef-Qt-Commercial.txt"
-    ]
+    ],
+    "note": ""
   },
   {
     "name": "sympy",
@@ -125,7 +149,8 @@
     "files": [
       "libraries/sympy/AUTHORS",
       "libraries/sympy/LICENSE"
-    ]
+    ],
+    "note": ""
   },
   {
     "name": "Python",

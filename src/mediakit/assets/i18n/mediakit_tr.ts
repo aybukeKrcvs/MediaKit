@@ -9,8 +9,8 @@
     </message>
     <message>
         <location filename="../../shell/about.py" line="112" />
-        <source>An offline media toolkit. It is built on the open-source work below; thank you to everyone who made it.</source>
-        <translation type="unfinished">Çevrimdışı bir medya araç kutusu. Aşağıdaki açık kaynak çalışmaların üzerine kuruldu; emeği geçen herkese teşekkürler.</translation>
+        <source>An offline media toolkit, free software under the GNU GPL v3 or later. It is built on the open-source work below; thank you to everyone who made it.</source>
+        <translation type="unfinished">Çevrimdışı bir medya araç kutusu; GNU GPL v3 veya sonrası altında özgür yazılım. Aşağıdaki açık kaynak çalışmaların üzerine kuruldu; emeği geçen herkese teşekkürler.</translation>
     </message>
     <message>
         <location filename="../../shell/about.py" line="130" />
@@ -34,64 +34,178 @@
     </message>
 </context>
 <context>
+    <name>AudioConvertTool</name>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="109" />
+        <source>Convert to</source>
+        <translation type="unfinished">Hedef format</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="111" />
+        <source>Everywhere</source>
+        <translation type="unfinished">Her yerde</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="111" />
+        <source>Plays on every device. Lossy.</source>
+        <translation type="unfinished">Her cihazda çalar. Kayıplı.</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="112" />
+        <source>AAC in an MP4 container. Lossy.</source>
+        <translation type="unfinished">MP4 içinde AAC. Kayıplı.</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="112" />
+        <source>Phones</source>
+        <translation type="unfinished">Telefonlar</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="114" />
+        <source>Smallest</source>
+        <translation type="unfinished">En küçük</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="115" />
+        <source>Best quality per kbit/s, great for speech. Lossy.</source>
+        <translation type="unfinished">kbit/s başına en iyi kalite, konuşma için ideal. Kayıplı.</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="117" />
+        <source>Lossless</source>
+        <translation type="unfinished">Kayıpsız</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="117" />
+        <source>Exact copy of the sound, compressed.</source>
+        <translation type="unfinished">Sesin birebir kopyası, sıkıştırılmış.</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="118" />
+        <source>Uncompressed</source>
+        <translation type="unfinished">Sıkıştırmasız</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="118" />
+        <source>Raw PCM. Largest files, for editing.</source>
+        <translation type="unfinished">Ham PCM. En büyük dosyalar, düzenleme için.</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="124" />
+        <source>Bitrate</source>
+        <translation type="unfinished">Bit hızı</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="125" />
+        <source>Sample rate</source>
+        <translation type="unfinished">Örnekleme hızı</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="126" />
+        <source>Channels</source>
+        <translation type="unfinished">Kanallar</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="131" />
+        <location filename="../../modules/audio/tools.py" line="140" />
+        <source>Keep original</source>
+        <translation type="unfinished">Orijinali koru</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="141" />
+        <source>Mono</source>
+        <translation type="unfinished">Mono</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="142" />
+        <source>Stereo</source>
+        <translation type="unfinished">Stereo</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="148" />
+        <source>Convert</source>
+        <translation type="unfinished">Dönüştür</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="194" />
+        <source>mono</source>
+        <translation type="unfinished">mono</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="194" />
+        <source>stereo</source>
+        <translation type="unfinished">stereo</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="195" />
+        <source>%1 channels</source>
+        <translation type="unfinished">%1 kanal</translation>
+    </message>
+    <message>
+        <location filename="../../modules/audio/tools.py" line="207" />
+        <source>Output about %1 per file like this.</source>
+        <translation type="unfinished">Bunun gibi bir dosya için çıktı yaklaşık %1.</translation>
+    </message>
+</context>
+<context>
     <name>AudioTools</name>
     <message>
-        <location filename="../../modules/audio/hub.py" line="15" />
+        <location filename="../../modules/audio/hub.py" line="21" />
         <source>Convert audio</source>
         <translation type="unfinished">Ses dönüştür</translation>
     </message>
     <message>
-        <location filename="../../modules/audio/hub.py" line="16" />
-        <source>MP3, WAV, FLAC, OGG, M4A and more.</source>
-        <translation type="unfinished">MP3, WAV, FLAC, OGG, M4A ve daha fazlası.</translation>
+        <location filename="../../modules/audio/hub.py" line="22" />
+        <source>MP3, M4A, Opus, FLAC, WAV.</source>
+        <translation type="unfinished">MP3, M4A, Opus, FLAC, WAV.</translation>
     </message>
     <message>
-        <location filename="../../modules/audio/hub.py" line="21" />
+        <location filename="../../modules/audio/hub.py" line="28" />
         <source>Speech to text</source>
         <translation type="unfinished">Konuşmadan metne</translation>
     </message>
     <message>
-        <location filename="../../modules/audio/hub.py" line="22" />
+        <location filename="../../modules/audio/hub.py" line="29" />
         <source>Transcribe recordings, export SRT/VTT subtitles.</source>
         <translation type="unfinished">Kayıtları metne dökün, SRT/VTT altyazı alın.</translation>
     </message>
     <message>
-        <location filename="../../modules/audio/hub.py" line="29" />
+        <location filename="../../modules/audio/hub.py" line="36" />
         <source>Reduce noise</source>
         <translation type="unfinished">Gürültü azalt</translation>
     </message>
     <message>
-        <location filename="../../modules/audio/hub.py" line="30" />
+        <location filename="../../modules/audio/hub.py" line="37" />
         <source>Clean up hiss and background noise.</source>
         <translation type="unfinished">Cızırtı ve arka plan gürültüsünü temizleyin.</translation>
     </message>
     <message>
-        <location filename="../../modules/audio/hub.py" line="35" />
+        <location filename="../../modules/audio/hub.py" line="42" />
         <source>Text to speech</source>
         <translation type="unfinished">Metinden sese</translation>
     </message>
     <message>
-        <location filename="../../modules/audio/hub.py" line="36" />
+        <location filename="../../modules/audio/hub.py" line="43" />
         <source>Read text aloud in Turkish or English.</source>
         <translation type="unfinished">Metni Türkçe veya İngilizce seslendirin.</translation>
     </message>
     <message>
-        <location filename="../../modules/audio/hub.py" line="43" />
+        <location filename="../../modules/audio/hub.py" line="50" />
         <source>Record &amp; transcribe</source>
         <translation type="unfinished">Kaydet ve metne dök</translation>
     </message>
     <message>
-        <location filename="../../modules/audio/hub.py" line="44" />
+        <location filename="../../modules/audio/hub.py" line="51" />
         <source>Record from the microphone, then transcribe.</source>
         <translation type="unfinished">Mikrofondan kaydedin, sonra metne dökün.</translation>
     </message>
     <message>
-        <location filename="../../modules/audio/hub.py" line="53" />
+        <location filename="../../modules/audio/hub.py" line="60" />
         <source>AUDIO &amp; SPEECH</source>
         <translation type="unfinished">SES &amp; KONUŞMA</translation>
     </message>
     <message>
-        <location filename="../../modules/audio/hub.py" line="54" />
+        <location filename="../../modules/audio/hub.py" line="61" />
         <source>Pick a task. Everything runs offline on this computer.</source>
         <translation type="unfinished">Bir iş seçin. Her şey bu bilgisayarda, çevrimdışı çalışır.</translation>
     </message>

@@ -51,6 +51,19 @@ FALLBACK_TEXTS = {
 }
 TEXTS = Path(__file__).resolve().parent / "license_texts"
 
+# Packages that bundle other software whose licenses their wheel does not
+# carry. The texts are added next to the package's own license files.
+EXTRA_TEXTS = {
+    "av": ("GPL-3.0-only", "LGPL-3.0-only"),
+}
+NOTES = {
+    "av": (
+        "PyAV (BSD-3-Clause) bundles FFmpeg built with GPL components (x264, x265) "
+        "and LGPL ones (LAME, Opus, ...); the combined binaries are distributed "
+        "under the GPL. Source of that FFmpeg build: https://github.com/PyAV-Org/pyav-ffmpeg"
+    ),
+}
+
 
 def runtime_closure(root: str = "mediakit") -> list[metadata.Distribution]:
     """`root` and everything it needs at runtime, extras excluded."""
@@ -100,6 +113,8 @@ def license_files(dist: metadata.Distribution) -> list[tuple[str, Path]]:
         parts = Path(str(entry)).parts
         if not parts or not LICENSE_NAME.search(parts[-1]):
             continue
+        if "__pycache__" in parts or parts[-1].endswith((".py", ".pyc")):
+            continue  # e.g. PyAV ships an AUTHORS.py script next to AUTHORS.rst
         in_dist_info = parts[0].endswith(".dist-info")
         if not in_dist_info and len(parts) > 2:
             continue
@@ -148,13 +163,17 @@ def collect_libraries() -> list[dict]:
         name = dist.metadata["Name"]
         key = canonicalize_name(name)
         files = copy_into(key, license_files(dist) or fallback_texts(key))
+        files += copy_into(
+            key, [(f"{x}.txt", TEXTS / f"{x}.txt") for x in EXTRA_TEXTS.get(key, ())]
+        )
         entries.append(
             {
                 "name": name,
                 "version": dist.version,
                 "license": license_of(dist),
                 "url": dist.metadata.get("Home-page") or _project_url(dist),
-                "files": files,
+                "files": sorted(set(files)),
+                "note": NOTES.get(key, ""),
             }
         )
 
@@ -199,6 +218,8 @@ def write_notices(libraries: list[dict]) -> None:
     lines = [
         "# Third-party notices",
         "",
+        "MediaKit itself is licensed GPL-3.0-or-later (see LICENSE).",
+        "",
         "MediaKit is built on the open-source work listed here. Full license",
         "texts are in `src/mediakit/assets/licenses/` and inside the app",
         "(sidebar \u2192 About).",
@@ -222,6 +243,10 @@ def write_notices(libraries: list[dict]) -> None:
     ]
     for entry in libraries:
         lines.append(f"| {entry['name']} | {entry['version']} | {entry['license']} |")
+    noted = [e for e in libraries if e.get("note")]
+    if noted:
+        lines += ["", "### Notes", ""]
+        lines += [f"- **{e['name']}**: {e['note']}" for e in noted]
     (ROOT / "THIRD_PARTY_NOTICES.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 

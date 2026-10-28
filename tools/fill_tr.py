@@ -249,7 +249,7 @@ TR: dict[str, str] = {
     "Too large for this scale, it will be skipped as an error.": "Bu ölçek için fazla büyük, hata olarak atlanacak.",
     # ---- licenses / about ----
     "About MediaKit": "MediaKit hakkında",
-    "An offline media toolkit. It is built on the open-source work below; thank you to everyone who made it.": "Çevrimdışı bir medya araç kutusu. Aşağıdaki açık kaynak çalışmaların üzerine kuruldu; emeği geçen herkese teşekkürler.",
+    "An offline media toolkit, free software under the GNU GPL v3 or later. It is built on the open-source work below; thank you to everyone who made it.": "Çevrimdışı bir medya araç kutusu; GNU GPL v3 veya sonrası altında özgür yazılım. Aşağıdaki açık kaynak çalışmaların üzerine kuruldu; emeği geçen herkese teşekkürler.",
     "License texts are legal documents and are shown in their original language.": "Lisans metinleri hukuki belgelerdir ve özgün dillerinde gösterilir.",
     "Close": "Kapat",
     "Add files or drag them here to begin.": "Başlamak için dosya ekleyin ya da buraya sürükleyin.",
@@ -258,6 +258,26 @@ TR: dict[str, str] = {
     "LIBRARIES": "KÜTÜPHANELER",
     "About & licenses": "Hakkında ve lisanslar",
     "Full license: sidebar \u2192 About & licenses": "Tam lisans: kenar çubuğu \u2192 Hakkında ve lisanslar",
+    # ---- 2a: audio convert ----
+    "MP3, M4A, Opus, FLAC, WAV.": "MP3, M4A, Opus, FLAC, WAV.",
+    "Everywhere": "Her yerde",
+    "Plays on every device. Lossy.": "Her cihazda çalar. Kayıplı.",
+    "Phones": "Telefonlar",
+    "AAC in an MP4 container. Lossy.": "MP4 içinde AAC. Kayıplı.",
+    "Best quality per kbit/s, great for speech. Lossy.": "kbit/s başına en iyi kalite, konuşma için ideal. Kayıplı.",
+    "Exact copy of the sound, compressed.": "Sesin birebir kopyası, sıkıştırılmış.",
+    "Uncompressed": "Sıkıştırmasız",
+    "Raw PCM. Largest files, for editing.": "Ham PCM. En büyük dosyalar, düzenleme için.",
+    "Bitrate": "Bit hızı",
+    "Sample rate": "Örnekleme hızı",
+    "Channels": "Kanallar",
+    "Keep original": "Orijinali koru",
+    "Mono": "Mono",
+    "Stereo": "Stereo",
+    "mono": "mono",
+    "stereo": "stereo",
+    "%1 channels": "%1 kanal",
+    "Output about %1 per file like this.": "Bunun gibi bir dosya için çıktı yaklaşık %1.",
 }
 
 
