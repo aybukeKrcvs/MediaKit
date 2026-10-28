@@ -18,8 +18,16 @@ from __future__ import annotations
 from pathlib import Path
 from typing import ClassVar
 
-from PySide6.QtCore import QCoreApplication, QFileInfo, QSize, Qt, Signal
-from PySide6.QtGui import QIcon, QImageReader, QPixmap
+from PySide6.QtCore import QCoreApplication, QFileInfo, QMimeData, QSize, Qt, Signal
+from PySide6.QtGui import (
+    QDragEnterEvent,
+    QDragLeaveEvent,
+    QDragMoveEvent,
+    QDropEvent,
+    QIcon,
+    QImageReader,
+    QPixmap,
+)
 from PySide6.QtWidgets import (
     QComboBox,
     QFileDialog,
@@ -80,6 +88,9 @@ class BatchToolScreen(QWidget):
 
         self._build()
         self._built = True
+        # Drag & drop: files or folders dropped anywhere on the tool page
+        # go through add_paths, the same door as the Add buttons.
+        self.setAcceptDrops(True)
         self.retranslate()
         self._update_enabled()
 
@@ -310,7 +321,9 @@ class BatchToolScreen(QWidget):
         if self._job is not None:
             return
         if not self._files:
-            self.status.setText(QCoreApplication.translate("BatchTool", "Add files to begin."))
+            self.status.setText(
+                QCoreApplication.translate("BatchTool", "Add files or drag them here to begin.")
+            )
             return
         if self._single:
             current = self.current_file()
@@ -371,6 +384,58 @@ class BatchToolScreen(QWidget):
         if self._single and self.file_list.currentRow() < 0 and self.file_list.count():
             self.file_list.setCurrentRow(0)
         self.refresh_state()
+
+    # ========================================================== drag & drop
+    #
+    # Qt delivers a drag in three steps: dragEnterEvent (may I accept
+    # this?), dragMoveEvent while the cursor moves, dropEvent on release.
+    # Rejecting in dragEnterEvent is what shows the "not allowed" cursor,
+    # so the user knows before letting go. The file list itself does not
+    # accept drops, so events over it bubble up to this page.
+
+    def dropped_paths(self, mime: QMimeData) -> list[Path]:
+        """Local files and folders in a drag; web links etc. are ignored."""
+        if not mime.hasUrls():
+            return []
+        return [Path(url.toLocalFile()) for url in mime.urls() if url.isLocalFile()]
+
+    def _usable(self, paths: list[Path]) -> bool:
+        return any(
+            path.is_dir() or path.suffix.lower().lstrip(".") in self.input_extensions
+            for path in paths
+        )
+
+    def _set_drop_highlight(self, on: bool) -> None:
+        # A dynamic property the QSS can match: #FileList[dropTarget="true"].
+        # Qt only re-reads styles on polish, hence unpolish/polish.
+        self.file_list.setProperty("dropTarget", on)
+        self.file_list.style().unpolish(self.file_list)
+        self.file_list.style().polish(self.file_list)
+
+    def dragEnterEvent(self, event: QDragEnterEvent) -> None:
+        if not self.is_running() and self._usable(self.dropped_paths(event.mimeData())):
+            event.acceptProposedAction()
+            self._set_drop_highlight(True)
+        else:
+            event.ignore()
+
+    def dragMoveEvent(self, event: QDragMoveEvent) -> None:
+        event.acceptProposedAction()
+
+    def dragLeaveEvent(self, event: QDragLeaveEvent) -> None:
+        self._set_drop_highlight(False)
+        super().dragLeaveEvent(event)
+
+    def dropEvent(self, event: QDropEvent) -> None:
+        self._set_drop_highlight(False)
+        paths = self.dropped_paths(event.mimeData())
+        before = len(self._files)
+        event.acceptProposedAction()
+        self.add_paths(paths)
+        if len(self._files) == before:
+            self.status.setText(
+                QCoreApplication.translate("BatchTool", "Nothing new to add from what was dropped.")
+            )
 
     def _clear_files(self) -> None:
         self._files.clear()

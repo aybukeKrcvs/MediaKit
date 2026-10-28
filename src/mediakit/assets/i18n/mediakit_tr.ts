@@ -197,127 +197,132 @@
 <context>
     <name>BatchTool</name>
     <message>
-        <location filename="../../ui/batch_tool.py" line="107" />
+        <location filename="../../ui/batch_tool.py" line="118" />
         <source>Start</source>
         <translation type="unfinished">Başlat</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="281" />
+        <location filename="../../ui/batch_tool.py" line="292" />
         <source>Add files</source>
         <translation type="unfinished">Dosya ekle</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="282" />
+        <location filename="../../ui/batch_tool.py" line="293" />
         <source>Add folder</source>
         <translation type="unfinished">Klasör ekle</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="283" />
+        <location filename="../../ui/batch_tool.py" line="294" />
         <source>Select all</source>
         <translation type="unfinished">Tümünü seç</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="284" />
+        <location filename="../../ui/batch_tool.py" line="295" />
         <source>Select none</source>
         <translation type="unfinished">Hiçbirini seçme</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="285" />
+        <location filename="../../ui/batch_tool.py" line="296" />
         <source>Clear list</source>
         <translation type="unfinished">Listeyi temizle</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="286" />
+        <location filename="../../ui/batch_tool.py" line="297" />
         <source>Output folder...</source>
         <translation type="unfinished">Çıktı klasörü...</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="287" />
+        <location filename="../../ui/batch_tool.py" line="298" />
         <source>If file exists</source>
         <translation type="unfinished">Dosya varsa</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="288" />
+        <location filename="../../ui/batch_tool.py" line="299" />
         <source>Cancel</source>
         <translation type="unfinished">İptal</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="290" />
+        <location filename="../../ui/batch_tool.py" line="301" />
         <source>Keep both</source>
         <translation type="unfinished">İkisini de tut</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="291" />
+        <location filename="../../ui/batch_tool.py" line="302" />
         <source>Overwrite</source>
         <translation type="unfinished">Üzerine yaz</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="292" />
+        <location filename="../../ui/batch_tool.py" line="303" />
         <source>Skip</source>
         <translation type="unfinished">Atla</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="304" />
+        <location filename="../../ui/batch_tool.py" line="315" />
         <source>Same folder as each source file</source>
         <translation type="unfinished">Her dosyanın kendi klasörü</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="313" />
-        <source>Add files to begin.</source>
-        <translation type="unfinished">Başlamak için dosya ekleyin.</translation>
+        <location filename="../../ui/batch_tool.py" line="325" />
+        <source>Add files or drag them here to begin.</source>
+        <translation type="unfinished">Başlamak için dosya ekleyin ya da buraya sürükleyin.</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="319" />
+        <location filename="../../ui/batch_tool.py" line="332" />
         <source>Click an image to edit it.</source>
         <translation type="unfinished">Düzenlemek için bir görsele tıklayın.</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="326" />
+        <location filename="../../ui/batch_tool.py" line="339" />
         <source>All files excluded.</source>
         <translation type="unfinished">Tüm dosyalar hariç tutuldu.</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="329" />
+        <location filename="../../ui/batch_tool.py" line="342" />
         <source>%n file(s) ready.</source>
         <translation type="unfinished">%n dosya hazır.</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="336" />
+        <location filename="../../ui/batch_tool.py" line="349" />
         <source>Supported files</source>
         <translation type="unfinished">Desteklenen dosyalar</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="339" />
+        <location filename="../../ui/batch_tool.py" line="352" />
         <source>Select files</source>
         <translation type="unfinished">Dosya seç</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="347" />
+        <location filename="../../ui/batch_tool.py" line="360" />
         <source>Select folder</source>
         <translation type="unfinished">Klasör seç</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="383" />
+        <location filename="../../ui/batch_tool.py" line="437" />
+        <source>Nothing new to add from what was dropped.</source>
+        <translation type="unfinished">Bırakılanlar arasında eklenecek yeni dosya yok.</translation>
+    </message>
+    <message>
+        <location filename="../../ui/batch_tool.py" line="448" />
         <source>Select output folder</source>
         <translation type="unfinished">Çıktı klasörünü seç</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="467" />
+        <location filename="../../ui/batch_tool.py" line="532" />
         <source>Cancelling...</source>
         <translation type="unfinished">İptal ediliyor...</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="473" />
+        <location filename="../../ui/batch_tool.py" line="538" />
         <source>Processing: %1</source>
         <translation type="unfinished">İşleniyor: %1</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="500" />
+        <location filename="../../ui/batch_tool.py" line="565" />
         <source>cancelled</source>
         <translation type="unfinished">iptal edildi</translation>
     </message>
     <message>
-        <location filename="../../ui/batch_tool.py" line="510" />
+        <location filename="../../ui/batch_tool.py" line="575" />
         <source>Error: %1</source>
         <translation type="unfinished">Hata: %1</translation>
     </message>

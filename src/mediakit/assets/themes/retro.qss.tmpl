@@ -178,6 +178,11 @@ QListWidget#FileList {
     color: $ink;
     padding: 4px;
 }
+/* while files are dragged over the tool page */
+QListWidget#FileList[dropTarget="true"] {
+    border: 2px dashed $amber;
+    background: $panel2;
+}
 QListWidget#FileList::item          { padding: 4px 6px; border-radius: 4px; }
 QListWidget#FileList::item:selected { background: $hover; color: $amber; }
 QListWidget#FileList::indicator {

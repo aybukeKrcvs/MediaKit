@@ -398,3 +398,75 @@ def test_upscale_tool_preview_size_and_batch(app, images, tmp_path, fake_upscale
 def test_upscale_card_opens_from_hub(hub):
     hub.open_tool("upscale")
     assert type(hub.current_tool()).__name__ == "UpscaleTool"
+
+
+# --------------------------------------------------------- drag & drop
+
+
+def _mime(*paths):
+    from PySide6.QtCore import QMimeData, QUrl
+
+    mime = QMimeData()
+    mime.setUrls([QUrl.fromLocalFile(str(p)) for p in paths])
+    return mime
+
+
+def _drag_enter(tool, mime):
+    from PySide6.QtCore import QPoint, QPointF
+    from PySide6.QtGui import QDragEnterEvent
+
+    args = (
+        Qt.DropAction.CopyAction,
+        mime,
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier,
+    )
+    try:  # QPointF overload is newer; QPoint one is deprecated in 6.12
+        event = QDragEnterEvent(QPointF(10, 10), *args)
+    except TypeError:
+        event = QDragEnterEvent(QPoint(10, 10), *args)
+    tool.dragEnterEvent(event)
+    return event.isAccepted()
+
+
+def _drop(tool, mime):
+    from PySide6.QtCore import QPointF
+    from PySide6.QtGui import QDropEvent
+
+    event = QDropEvent(
+        QPointF(10, 10),
+        Qt.DropAction.CopyAction,
+        mime,
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier,
+    )
+    tool.dropEvent(event)
+
+
+def test_drop_files_and_folders(hub, images, tmp_path):
+    hub.open_tool("convert")
+    tool = hub.current_tool()
+    assert tool.acceptDrops()
+
+    mime = _mime(images / "wide.jpg")
+    assert _drag_enter(tool, mime)
+    assert tool.file_list.property("dropTarget") is True
+    _drop(tool, mime)
+    assert tool.file_list.property("dropTarget") is False
+    assert tool.file_list.count() == 1
+
+    _drop(tool, _mime(images))  # a folder adds what is inside
+    assert tool.file_list.count() == 2
+
+
+def test_drop_rejects_unsupported_and_reports_duplicates(hub, images, tmp_path):
+    hub.open_tool("convert")
+    tool = hub.current_tool()
+    note = tmp_path / "notes.txt"
+    note.write_text("x")
+    assert not _drag_enter(tool, _mime(note))  # "not allowed" cursor
+
+    _drop(tool, _mime(images / "wide.jpg"))
+    _drop(tool, _mime(images / "wide.jpg"))
+    assert tool.file_list.count() == 1
+    assert "Nothing new" in tool.status.text()
